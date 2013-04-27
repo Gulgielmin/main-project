@@ -1,4 +1,4 @@
 main-project
 ============
 
-Main repository for Business Intelligence project.
+Main repository for Savant project.

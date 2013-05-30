@@ -1,1 +1,0 @@
-Diretório para inclusão dos componentes de indereção para a camada de persistência.

@@ -29,6 +29,8 @@ class ProjetoBusiness extends Business{
 		return $ok;
 	}
 	public function exclui(){
+		$ok = $this->dao->excluiProjetoDao($idProjeto);
+		return $ok;
 
 	}
 }

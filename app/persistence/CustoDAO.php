@@ -36,5 +36,28 @@ class DefaultCustoDAO extends PDOConnectionFactory implements CustoDAO{
 			echo "Erro: ".$ex->getMessage(); 
 		}
 	}
+	public function alteraCustoDAO($custo){
+		try{
+			$stmt = $this->conex->prepare("UPDATE savant.custo SET  Periodicidade_id = :periodicidade, valor = :valor, qtdPeriodos = :qtdperiodos, data = :data  WHERE custo.idCusto = :id LIMIT 1");
+				
+			$stmt->bindValue('periodicidade', $custo->getPeriodicidade(), PDO::PARAM_INT);
+			$stmt->bindValue('valor', $custo->getValor(), PDO::PARAM_STR);
+			$stmt->bindValue('qtdperiodos', $custo->getQtdPeriodos(), PDO::PARAM_INT);
+			$stmt->bindValue('data', $custo->getData(), PDO::PARAM_STR);
+			$stmt->bindValue('id', $custo->getIdCusto(), PDO::PARAM_INT);
+	
+			try {
+				$stmt->execute();
+			}
+			catch (Exception $ex){
+				echo 'ERRO: '.$ex->getMessage();
+			}
+			$idCusto = $this->conex->lastInsertId();
+			PDOConnectionFactory::fechaConexao();
+			return $idCusto;
+		}catch ( PDOException $ex ){
+			echo "Erro: ".$ex->getMessage();
+		}
+	}
 }
 ?>

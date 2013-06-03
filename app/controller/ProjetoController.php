@@ -38,6 +38,13 @@ class ProjetoController{
 
 		return $projeto;
 	}
+	public function excluiProjeto($idProjeto){
+	
+		$ok = $this->business->exclui($idProjeto);
+		
+		return $ok;
+	}
+	
 }
 
 ?>

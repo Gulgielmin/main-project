@@ -45,13 +45,13 @@ class DefaultProjetoDAO extends PDOConnectionFactory implements ProjetoDAO{
 		$stmt->bindValue('id', $idUsuario, PDO::PARAM_INT);
 
 		try {
-			$ok = $stmt->execute();
+			$stmt->execute();
 		}
 		catch (Exception $ex){
 			echo 'ERRO: '.$ex->getMessage();
 		}
 
-		$projetos = $stmt->fetch(PDO::FETCH_OBJ);
+		$projetos = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 		return $projetos;
 	}

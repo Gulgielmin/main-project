@@ -5,22 +5,23 @@ include $_SERVER['DOCUMENT_ROOT'].'\Savant\main-project\app\controller\ProjetoCo
 define("LISTA_PROJETO",1);
 define("CADASTRO",2);
 
-$acao = $_POST['action'];
-$retorno = null;
-
-if($acao==LISTA_PROJETO)
-		$retorno = listaProjeto($_POST['idUsuario']);
-else if($acao==CADASTRO)
-		$retorno = cria($_POST);	
+//---Para tratar requisições de formulários
+if($_REQUEST) { //Se houver requisição...
+	$acao = $_REQUEST['action'];
+	$retorno = null;
+	
+	if($acao==LISTA_PROJETO)
+			$retorno = listaProjeto($_POST['idUsuario']);
+	else if($acao==CADASTRO)
+			$retorno = cria($_POST);
+}	
+//---Fim do tratamento de requisições de formulários
 
 function cria($formulario){
 
-		echo '123';
-
 		$controller = new ProjetoController();
-
+		
 		$sucesso = $controller->cria($formulario);
-
 		if($sucesso)
 			echo 'Operação Realizada!'; //Aqui redireciona para local adequado!
 		return $sucesso;
@@ -32,12 +33,7 @@ function listaProjeto($IdUsuario){
 	$controller = new ProjetoController();
 
 	$sucesso = $controller->listaProjeto($IdUsuario);
-
-	if($sucesso)
-		echo 'Operação Realizada!!!!'; //Aqui redireciona para local adequado!
-
-		echo $sucesso->nome_projeto;
-		echo $sucesso->idProjeto;
+	
 	return $sucesso;
 }
 

@@ -3,10 +3,10 @@
 	<label>Nome do Projeto:</label>
 	<input type="text" name="nomeProjeto" /><br>
 
-	<label> Data de In&iacute;cio:</label>
+	<label> Data de Início:</label>
 	<input type="text" name="dataInicio" /><br>
 
-	<label> Data de T&eacute;rmino:</label>
+	<label> Data de Término:</label>
 	<input type="text" name="dataTermino" /><br>
 
 	<label> Previsão de Custo:</label>
@@ -14,8 +14,8 @@
 
 	<label> Periodicidade:</label>
 	<select size="1" name="periodicidade">	
-		<option select value="1">&Uacute;nica</option>
-		<option value="2">Di&aacute;ria</option>
+		<option select value="1">Única</option>
+		<option value="2">Diária</option>
 		<option value="3">Semanal</option>
 		<option value="4">Quinzenal</option>
 		<option value="5">Mensal</option>

@@ -1,10 +1,12 @@
 <?php 
 
 abstract class Business{
-	abstract public function salva();
+
+	protected $dao;
+
+	abstract public function salva($objeto);
 	abstract public function altera();
-	abstract public function consulta();
+	abstract public function buscaProjeto($idProjeto);
 	abstract public function exclui();
-	
 }
 ?>

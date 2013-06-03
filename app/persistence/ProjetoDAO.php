@@ -71,6 +71,21 @@ class DefaultProjetoDAO extends PDOConnectionFactory implements ProjetoDAO{
 		$projeto = $stmt->fetch(PDO::FETCH_OBJ);
 
 		return $projeto;
+	}
+	
+	public function excluiProjetoDao($idProjeto){
+		
+		$stmt = $this->conex->prepare("DELETE FROM projeto WHERE projeto.idProjeto = :id LIMIT 1");
+		$stmt->bindValue('id', $idProjeto, PDO::PARAM_INT);
+	
+		try {
+			$ok = $stmt->execute();
+		}
+		catch (Exception $ex){
+			echo 'ERRO: '.$ex->getMessage();
+		}
+	
+		return $ok;
 	}	
 
 

@@ -5,6 +5,12 @@ $(function($){
    $("#dinheiro").mask("???.???.???.??9,99");
 });
 
+$(document).ready(function() {
+    $('#botaoCancelar').click(function() {
+        history.back();
+    });
+});
+
 $(function() {
     $( "input[type=submit], input[type=reset], button, .button" )
       .button()

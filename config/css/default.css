@@ -467,3 +467,9 @@ hr {
 	height:40px;
 	background:#eee;
 }
+
+/*Form de Cadastro de Projeto*/
+
+#formCadastroProjeto input, #formCadastroProjeto select{
+	width:70%;	
+}

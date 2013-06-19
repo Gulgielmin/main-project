@@ -6,7 +6,7 @@ function IsNum(v)
    var Char;
 
  
-   for (i = 0; i < v.length && IsNumber == true; i++) 
+   for (var i = 0; i < v.length && IsNumber == true; i++) 
       { 
       Char = v.charAt(i); 
       if (ValidChars.indexOf(Char) == -1) 
@@ -25,7 +25,7 @@ alert("Preencha o nome corretamente.");
 form.nome.focus();
 return false;
 }
-var filtro_mail = /^.+@.+\..{2,3}$/
+var filtro_mail = /^.+@.+\..{2,3}$/;
 if (!filtro_mail.test(form.email.value) || form.email.value=="") {
 alert("Preencha o e-mail corretamente.");
 form.email.focus();

@@ -28,6 +28,14 @@ p, ol {
 	line-height: 200%;
 }
 
+input {
+	border-radius:3px;
+	padding: 4px 5px;
+	border:1px solid #7d8183;
+	outline:0;
+	background:#fefefe;
+}
+
 strong {
 }
 

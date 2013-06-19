@@ -2,6 +2,9 @@
 	include_once $_SERVER['DOCUMENT_ROOT'].'/Savant/topo.php';
 	include_once $_SERVER['DOCUMENT_ROOT'].'/Savant/projeto/handlerProjeto.php';
 	
+	if(!$_REQUEST['id'])
+		header ("location: index.php");
+	
 	$projeto =  buscaProjeto($_REQUEST['id']); //buscar o projeto de acordo com o id que vier
 ?>
 		<div id="nav-map">

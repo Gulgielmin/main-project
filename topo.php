@@ -20,5 +20,5 @@
 		<div id="wrapper-bgbtm">
 			<div id="header">
 				<div id="logo">
-					<h1><a href="#"><img src="../config/images/savant_med.png" align="center" width="195" /></a></h1>
+					<h1><a href="#"><img src="../config/images/savant_med.png" width="195" /></a></h1>
 				</div>

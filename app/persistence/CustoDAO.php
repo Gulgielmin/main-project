@@ -1,8 +1,9 @@
-<?php
+﻿<?php
 include_once 'PDOConnectionFactory.php';
 interface CustoDAO {
 	
 	public function salvaDAO($custo);
+	public function alteraCustoDAO($custo);
 }
 
 class DefaultCustoDAO extends PDOConnectionFactory implements CustoDAO{
@@ -37,8 +38,10 @@ class DefaultCustoDAO extends PDOConnectionFactory implements CustoDAO{
 		}
 	}
 	public function alteraCustoDAO($custo){
+		$ok = null;
+		
 		try{
-			$stmt = $this->conex->prepare("UPDATE savant.custo SET  Periodicidade_id = :periodicidade, valor = :valor, qtdPeriodos = :qtdperiodos, data = :data  WHERE custo.idCusto = :id LIMIT 1");
+			$stmt = $this->conex->prepare("UPDATE custo SET Periodicidade_id = :periodicidade, valor = :valor, qtdPeriodos = :qtdperiodos, data = :data WHERE idCusto = :id");
 				
 			$stmt->bindValue('periodicidade', $custo->getPeriodicidade(), PDO::PARAM_INT);
 			$stmt->bindValue('valor', $custo->getValor(), PDO::PARAM_STR);
@@ -47,14 +50,13 @@ class DefaultCustoDAO extends PDOConnectionFactory implements CustoDAO{
 			$stmt->bindValue('id', $custo->getIdCusto(), PDO::PARAM_INT);
 	
 			try {
-				$stmt->execute();
+				$ok = $stmt->execute();
 			}
 			catch (Exception $ex){
-				echo 'ERRO: '.$ex->getMessage();
+				echo 'Erro: '.$ex->getMessage();
 			}
-			$idCusto = $this->conex->lastInsertId();
 			PDOConnectionFactory::fechaConexao();
-			return $idCusto;
+			return $ok;
 		}catch ( PDOException $ex ){
 			echo "Erro: ".$ex->getMessage();
 		}

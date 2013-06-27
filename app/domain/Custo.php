@@ -1,4 +1,3 @@
-
 <?php 
 class Custo{
 	
@@ -8,7 +7,7 @@ class Custo{
 	private $qtdPeriodos;
 	private $data;
 	
-	public function __construct($idCusto, $periodicidade, $valor, $qtdPeriodos, $data){
+	public function __construct($periodicidade, $valor, $qtdPeriodos, $data, $idCusto=""){
 		$this->setIdCusto($idCusto);
 		$this->setPeriodicidade($periodicidade);
 		$this->setValor($valor);

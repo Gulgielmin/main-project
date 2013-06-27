@@ -1,0 +1,1 @@
+Aqui os arquivos da view para itens de custo de um projeto.

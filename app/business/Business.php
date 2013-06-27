@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 abstract class Business{
 
@@ -9,4 +9,5 @@ abstract class Business{
 	abstract public function buscaProjeto($idProjeto);
 	abstract public function exclui();
 }
+
 ?>

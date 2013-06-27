@@ -1,4 +1,4 @@
-<?php 
+﻿<?php 
 class PDOConnectionFactory{
 	private $dsn = 'mysql:host=localhost;dbname=savant';
 	private $user = 'root';
@@ -20,4 +20,5 @@ class PDOConnectionFactory{
 			$this->conn = null;
 	}
 }
+
 ?>

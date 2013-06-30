@@ -24,6 +24,7 @@
 									<li class="first"><a href="visualizarProjeto.php?id=<?php echo $nome['idProjeto'];?>"><?php echo $nome['nome_projeto'];?></a></li>
 								<?php }?>
 							</ul>
+							<?php echo $_SESSION['nomeUsuario']; ?>
 						</div>
 					</div>
 				</div>

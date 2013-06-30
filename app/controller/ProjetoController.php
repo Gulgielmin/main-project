@@ -35,7 +35,7 @@ class ProjetoController{
 	public function buscaProjeto($idProjeto){
 
 		$busca = $this->business->buscaProjeto($idProjeto);
-		$projeto = new Projeto($busca->nome_projeto, $this->converter_data($busca->inicio), $this->converter_data($busca->fim), $busca->Periodicidade_id, $busca->valor, $busca->qtdPeriodos, $this->converter_data($busca->data), $busca->idProjeto, $busca->Custo_id);
+		$projeto = new Projeto($busca->idProjeto, $busca->nome_projeto, $this->converter_data($busca->inicio), $this->converter_data($busca->fim), $busca->Periodicidade_id, $busca->valor, $busca->qtdPeriodos, $this->converter_data($busca->data), $busca->idProjeto, $busca->Custo_id);
 
 		return $projeto;
 	}

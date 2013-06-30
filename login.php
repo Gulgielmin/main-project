@@ -26,7 +26,7 @@
 			<div id="page">
 				<div id="content" style="width:80%;">
 					<div class="post">
-						<form method="post" action="handlerProjeto.php?action=2" id="formCadastroProjeto">
+						<form method="post" action="usuario/handlerUsuario.php?action=1" id="formCadastroProjeto">
 							<table style="width:300px;">
 								<tr>
 									<th>E-mail:&nbsp;&nbsp;
@@ -37,13 +37,18 @@
 									<th>Senha:&nbsp;&nbsp;
 										<input type="password" name="senha" value="" />
 									</th>
-								</tr>
-								<tr>
+								</tr><tr>
 									<th>
 										<br />
 										<input type="submit" style="background: url(config/images/ui-bg_glass_75_dadada_1x400.png);" value="Enviar" />
 									</th>
 								</tr>
+								<tr>
+									<th style="text-align:left;"><br />
+										<a href="#">Criar Conta</a><br /><br />
+										<a href="#">Esqueci minha senha</a>
+									</th>
+								</tr>								
 							</table>
 						</form>
 					</div>

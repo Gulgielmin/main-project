@@ -50,4 +50,15 @@ class UsuarioController{
 		$u = new Usuario($nome, $email, $senha,$usuario,$confirmacao);
 		$this->business->salva($u);
 	}
+
+	public function consultaUsuario($idUsuario){
+		$busca = $this->business->consultaUsuario($idUsuario);
+		if($busca){
+			$usuario = new Usuario($busca->nome, $busca->email, $busca->senha);
+			return $usuario;
+		}
+		else{
+			echo "ERRO NA CONSULTA DE USUÁRIO";
+		}
+	}
 }

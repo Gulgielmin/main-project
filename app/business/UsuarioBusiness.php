@@ -1,3 +1,4 @@
+
 <?php 
 include $_SERVER['DOCUMENT_ROOT'].'/Savant/app/persistence/UsuarioDAO.php';
 include $_SERVER['DOCUMENT_ROOT'].'/Savant/app/business/Business.php';
@@ -18,10 +19,13 @@ class UsuarioBusiness extends Business{
 		return $ok;
 	}
 	
+	public function consultaUsuario($idUsuario){
 
-	public function salva($usuario){
-		
+		$ok = $this->dao->consultaUsuarioDAO($idUsuario);
+		return $ok;
 	}
+
+	public function salva($objeto){}
 	public function altera($id){}
 	public function exclui($id){}
 }

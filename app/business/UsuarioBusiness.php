@@ -26,7 +26,18 @@ class UsuarioBusiness extends Business{
 	}
 
 	public function salva($objeto){}
-	public function altera($id){}
+	
+	public function altera($id, $nome, $email, $senha){
+		$ok = null;
+		try {
+				$ok = $this->dao->alteraConta($id, $nome, $email, $senha);
+			}
+		catch(Exception $ex){
+			echo "ERRO: ".$ex.getMessage();
+		}
+		return $ok;
+	}
 	public function exclui($id){}
 }
+
 ?>

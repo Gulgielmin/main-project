@@ -36,7 +36,6 @@ class UsuarioController{
 			return true;
 		}
 		else {
-			echo "Nao devia estar aqui\n";
 			return false;
 		}
 	}

@@ -1,6 +1,9 @@
-<h1>Tela de Login</h1>
-<?php
-echo "Hello World";
+<?php 
+
+if (!isset($_SESSION['idUsuario']) OR !isset($_SESSION['nomeUsuario'])) {
+	include 'logout.php';
+}
+else {
+	header("location: projeto/index.php");
+}
 ?>
-<br>
-<a href="view/projeto/meusProjetos.php?action=1">Ir para meus Projetos</a>

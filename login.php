@@ -26,6 +26,8 @@
 			<div id="page">
 				<div id="content" style="width:80%;">
 					<div class="post">
+						<?php if($_GET) echo "<div class='ui-state-error ui-corner-all' style='text-indent:25px;'><h4>Usuário ou Senha inválidos!</h4></div>" ?>
+						<br />
 						<form method="post" action="usuario/handlerUsuario.php?action=1" id="formCadastroProjeto">
 							<table style="width:300px;">
 								<tr>

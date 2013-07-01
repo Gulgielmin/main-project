@@ -28,11 +28,10 @@ function efetuarLogin($dadosLogin){
 	if($sucesso) {
 		header ("location: ../projeto/index.php");
 	}
-	else
+	else {
 		echo "Algum erro ocorreu!"; //mudar para Mensagem de alerta em JS
-	
-
-	return $sucesso;
+		header ("location: ../login.php?sucess=false");
+	}
 }
 
 ?>

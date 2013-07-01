@@ -2,8 +2,6 @@
 	include_once $_SERVER['DOCUMENT_ROOT'].'/Savant/topo.php';
 	include_once $_SERVER['DOCUMENT_ROOT'].'/Savant/projeto/handlerProjeto.php';
 	
-	$_SESSION['idUsuario'] = 1;
-	
 	$meusProjetos = listaProjeto($_SESSION['idUsuario']);
 ?>
 				<div id="nav-map">
@@ -24,13 +22,12 @@
 									<li class="first"><a href="visualizarProjeto.php?id=<?php echo $nome['idProjeto'];?>"><?php echo $nome['nome_projeto'];?></a></li>
 								<?php }?>
 							</ul>
-							<?php echo $_SESSION['nomeUsuario']; ?>
 						</div>
 					</div>
 				</div>
 				<div id="sidebar">
 					<div>
-						<h2 class="title">Olá Usuário!</h2>
+						<h2 class="title">Olá <?php echo $_SESSION['nomeUsuario']?>!</h2>
 						<ul>
 							<li><a href="#">Meus Dados</a></li>
 							<li><a href="../logout.php">Sair</a></li>

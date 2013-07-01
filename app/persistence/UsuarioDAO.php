@@ -31,6 +31,20 @@ class DefaultUsuarioDAO extends PDOConnectionFactory implements UsuarioDAO{
 		$usuario = $stmt->fetch(PDO::FETCH_OBJ);
 				
 		return $usuario;
+	}
+	public function consultaUsuarioDAO($idUsuario){
+		$usuario = null;
+		$stmt = $this->conex->prepare("SELECT * FROM usuario WHERE idUsuario = :idUsuario LIMIT 1"); 
+		$stmt ->bindValue('idUsuario', $idUsuario, PDO::PARAM_INT);
+		try {
+			$ok = $stmt->execute();
+		}
+		catch (Exception $ex){
+			echo 'ERRO: '.$ex->getMessage();
+		} 
+		$usuario = $stmt->fetch(PDO::FETCH_OBJ);
+		
+		return $usuario;
 	}	
 }
 

@@ -18,6 +18,11 @@ class UsuarioBusiness extends Business{
 		return $ok;
 	}
 	
+	public function consultaUsuario($idUsuario){
+
+		$ok = $this->dao->consultaUsuarioDAO($idUsuario);
+		return $ok;
+	}
 
 	public function salva($objeto){}
 	public function altera($id){}

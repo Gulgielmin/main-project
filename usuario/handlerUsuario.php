@@ -34,4 +34,9 @@ function efetuarLogin($dadosLogin){
 	}
 }
 
+function verPerfil($idUsuario){
+	
+	$controller = new UsuarioController();
+	return $controller->buscaUsuario($idUsuario); 
+}
 ?>

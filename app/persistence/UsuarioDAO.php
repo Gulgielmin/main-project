@@ -21,24 +21,21 @@ class DefaultUsuarioDAO extends PDOConnectionFactory implements UsuarioDAO{
 		$stmt->bindValue('email', $email, PDO::PARAM_STR);
 		$stmt->bindValue('senha', $senha, PDO::PARAM_STR);
 		
-		try {
-			$ok = $stmt->execute();
-		}
-		catch (Exception $ex){
-			echo 'ERRO: '.$ex->getMessage();
-		}
-		
+		$ok = $stmt->execute();
+				
 		$usuario = $stmt->fetch(PDO::FETCH_OBJ);
 				
 		return $usuario;
 	}	
 	
 	public function salvarUsuario($usuario) {
-		$stmt = $this->conex->prepare("INSERT INTO savant.usuario (idUsuario, email, senha, nome, nomeUsuario) VALUES ( :email, :senha, :nome, :nomeUsuario)");
-		$stmt->bindValue('email', $email, PDO::PARAM_STR);
-		$stmt->bindValue('email', $email, PDO::PARAM_STR);
-		$stmt->bindValue('senha', $senha, PDO::PARAM_STR);
-		$stmt->bindValue('email', $email, PDO::PARAM_STR);
+		$stmt = $this->conex->prepare("INSERT INTO savant.usuario (idUsuario, email, senha, nome, suario) VALUES ( :email, :senha, :nome, :usuario)");
+		$stmt->bindValue('email', $usuario->email, PDO::PARAM_STR);
+		$stmt->bindValue('senha', $usuario->senha, PDO::PARAM_STR);
+		$stmt->bindValue('usuario', $usuario->usuario, PDO::PARAM_STR);
+		$stmt->bindValue('nome', $usuario->nome, PDO::PARAM_STR);
+		
+		$stmt->execute();
 	}
 }
 

@@ -36,7 +36,7 @@
 		</div>
 		<div class="content">
 			<div class="register">
-				<form action="register.do.php" method="post">
+				<form action="register.do.php?action=new" method="post">
 					<div class="labels">
 						<label for="nome">Nome:</label> <label for="usuario">Usu&aacute;rio:</label>
 						<label for="email">Email:</label> <label for="senha">Senha:</label>

@@ -32,6 +32,14 @@ class DefaultUsuarioDAO extends PDOConnectionFactory implements UsuarioDAO{
 				
 		return $usuario;
 	}	
+	
+	public function salvarUsuario($usuario) {
+		$stmt = $this->conex->prepare("INSERT INTO savant.usuario (idUsuario, email, senha, nome, nomeUsuario) VALUES ( :email, :senha, :nome, :nomeUsuario)");
+		$stmt->bindValue('email', $email, PDO::PARAM_STR);
+		$stmt->bindValue('email', $email, PDO::PARAM_STR);
+		$stmt->bindValue('senha', $senha, PDO::PARAM_STR);
+		$stmt->bindValue('email', $email, PDO::PARAM_STR);
+	}
 }
 
 ?>

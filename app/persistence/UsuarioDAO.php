@@ -31,7 +31,30 @@ class DefaultUsuarioDAO extends PDOConnectionFactory implements UsuarioDAO{
 		$usuario = $stmt->fetch(PDO::FETCH_OBJ);
 				
 		return $usuario;
-	}	
-}
+	}
+	public function alteraConta($id, $nome, $email, $senha){
+		$ok = null;
+		try{
+	
+			$stmt = $this->conex->prepare("UPDATE usuario SET nome = :nome, email = :email, senha = :senha WHERE idUsuario = :id");
+			
+					$stmt->bindValue('nome', $usuario->getNome(), PDO::PARAM_STR);
+					$stmt->bindValue('email', $usuario->getEmail(), PDO::PARAM_STR);
+					$stmt->bindValue('senha', $usuario->getSenha(), PDO::PARAM_STR);
+					$stmt->bindValue('id', $usuario->getIdUsuario(), PDO::PARAM_INT);
+					
+					try {
+						$ok = $stmt->execute();
+					}
+					catch (Exception $ex){
+						echo 'ERRO: '.$ex->getMessage();
+					}
+					
+					$this->conex = PDOConnectionFactory::fechaConexao();
+					return $ok;
+					
+		}catch ( PDOException $ex ){  echo "Erro: ".$ex->getMessage(); }
+	}
+}	
 
 ?>

@@ -1,1 +1,0 @@
-Aqui os arquivos da view para geração de relatórios

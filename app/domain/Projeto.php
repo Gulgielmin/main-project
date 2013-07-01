@@ -14,12 +14,12 @@ class Projeto{
 	private $fim;
 	private $custo;
 	
-	public function __construct($idProjeto, $nome, $inicio, $fim, $periodicidade, $valor, $qtdPeriodos, $data){
+	public function __construct($idProjeto, $nome, $inicio, $fim, $periodicidade, $valor, $qtdPeriodos, $data, $idCusto = null){
 		$this->setIdProjeto($idProjeto);
 		$this->setNome($nome);
 		$this->setInicio($inicio);
 		$this->setFim($fim);
-		$this->setCusto(new Custo(null,$periodicidade, $valor, $qtdPeriodos, $data));	
+		$this->setCusto(new Custo($idCusto,$periodicidade, $valor, $qtdPeriodos, $data));	
 	}
 	
 	

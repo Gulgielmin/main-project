@@ -7,11 +7,20 @@ class Usuario{
 	private $email;
 	private $senha;
 	
-	public function __construct($nome, $email, $senha, $idUsuario=""){
+	public function __construct($nome, $email, $senha, $confirmacao=NULL,$idUsuario=""){
 		$this->setIdUsuario($idUsuario);
 		$this->setNome($nome);
 		$this->setEmail($email);
-		$this->setSenha($senha);
+		
+		if($confirmacao == NULL) {
+			$this->setSenha($senha);
+		}
+		else if($senha == $confirmacao) {
+			$this->setSenha($senha);
+		}
+		else {
+			throw new Exception("Senhas não conferem.");
+		}
 	}
 	
 	public function getIdUsuario(){

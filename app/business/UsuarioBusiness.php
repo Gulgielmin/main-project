@@ -19,7 +19,9 @@ class UsuarioBusiness extends Business{
 	}
 	
 
-	public function salva($objeto){}
+	public function salva($usuario){
+		
+	}
 	public function altera($id){}
 	public function exclui($id){}
 }

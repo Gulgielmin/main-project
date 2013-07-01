@@ -39,4 +39,15 @@ class UsuarioController{
 			return false;
 		}
 	}
+	
+	public function registrarUsuario($content) {
+		$nome = $content['nome'];
+		$usuario = $content['usuario'];
+		$email = $content['email'];
+		$senha = $content['senha'];
+		$confirmacao = $content['confirmacao'];
+		
+		$u = new Usuario($nome, $email, $senha,$usuario,$confirmacao);
+		$this->business->salva($u);
+	}
 }

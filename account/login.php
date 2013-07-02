@@ -1,4 +1,4 @@
-<?php include '../app/utils/session_utils.php';?>
+<?php require '../app/utils/session_utils.php';?>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -12,15 +12,15 @@
 
 	<div class="root">
 		
-		<?php include '../shared/header.php';?>
+		<?php require '../shared/header.php';?>
 		
-		<?php include '../shared/navigation_bar.php';?>
+		<?php require '../shared/navigation_bar.php';?>
 		
 		<div class="content">
 			<div class="login">
 				<h1>Retornando a esta página?</h1>
 				Acesse aqui, usando seu nome de usu�rio e a sua senha.
-				<form action="account.do.php?action=login">
+				<form action="account.do.php?action=login" method="post">
 
 					<label for="email">Usuário: </label> <input type="text" name="email" id="email" value="" />
 					<label for="senha">Senha:</label> <input type="password" name="senha" id="senha" value="" />

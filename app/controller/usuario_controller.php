@@ -1,7 +1,7 @@
 <?php
 
-include '../../app/business/usuario_business.php';
-include '../../app/domain/usuario.php';
+require dirname(__FILE__).'/../business/usuario_business.php';
+require dirname(__FILE__).'/../domain/usuario.php';
 
 class UsuarioController{
 	private $business;

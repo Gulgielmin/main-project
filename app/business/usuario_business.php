@@ -1,7 +1,7 @@
 
 <?php 
-include '../../app/persistence/usuario_dao.php';
-include '../../app/business/business.php';
+require dirname(__FILE__).'/../persistence/usuario_dao.php';
+require dirname(__FILE__).'/../business/business.php';
 
 class UsuarioBusiness extends Business{
 

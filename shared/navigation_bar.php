@@ -12,7 +12,7 @@
 
 		<div id="left">
 			<ul>
-				<li><a href="">Sair</a></li>
+				<li><a href="../account/logout.php">Sair</a></li>
 			</ul>
 		</div>
 

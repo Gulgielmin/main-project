@@ -1,5 +1,5 @@
 <?php
-include_once 'pdo_connection_factory.php';
+require 'pdo_connection_factory.php';
 
 interface UsuarioDAO {
 
@@ -22,16 +22,21 @@ class DefaultUsuarioDAO extends PDOConnectionFactory implements UsuarioDAO{
 	}
 
 	public function validarUsuario($email, $senha){
-		$usuario = null;
-		$stmt = $this->conex->prepare("SELECT * FROM usuario WHERE email = :email AND senha = :senha LIMIT 1");
+		
+		$stmt = $this->conex->prepare("SELECT idUsuario,nome,email,senha FROM usuario WHERE email=:email AND senha=:senha LIMIT 1");
 		$stmt->bindValue('email', $email, PDO::PARAM_STR);
 		$stmt->bindValue('senha', $senha, PDO::PARAM_STR);
 		
-		$stmt->execute();
+		$success = $stmt->execute();
 				
-		$usuario = $stmt->fetch(PDO::FETCH_OBJ);
-				
-		return $usuario;
+		if($success && $stmt->rowCount() > 0) {
+			$usuario = $stmt->fetchObject();
+			return $usuario;
+		}
+		else {
+			return NULL;
+		}
+		
 	}	
 	
 	public function salvarUsuario($usuario) {

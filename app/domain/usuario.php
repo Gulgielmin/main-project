@@ -2,10 +2,10 @@
 <?php 
 class Usuario{
 	
-	private $idUsuario;
-	private $nome;
-	private $email;
-	private $senha;
+	public $idUsuario;
+	public $nome;
+	public $email;
+	public $senha;
 	
 	public function __construct($nome, $email, $senha, $confirmacao=NULL,$idUsuario=""){
 		$this->setIdUsuario($idUsuario);

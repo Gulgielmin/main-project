@@ -5,49 +5,56 @@ require dirname(__FILE__).'/../domain/usuario.php';
 
 class UsuarioController{
 	private $business;
-	
+
 	public function __construct(){
 		$this->business = new UsuarioBusiness();
 	}
-	
+
 	public function verificaCamposLogin($dadosLogin){
 		if ($dadosLogin['email'] == '' || $dadosLogin['senha'] == '' )
 			return false;
-		else 
-			return true;	
+		else
+			return true;
 	}
-	
+
+	private function _efetuarLogin($usuario) {
+
+		if($usuario) {
+			session_start("usuario");
+			$_SESSION['usuario.id'] = $usuario->idUsuario;
+			$_SESSION['usuario.nome'] = $usuario->nome;
+			$_SESSION['usuario.email'] = $usuario->email;
+		}
+		else {
+			throw new Exception("User does not exists.");
+		}
+	}
+
 	public function validarUsuario($content){
 		$usuario = new Usuario(NULL, $content['email'], $content['senha'], NULL);
 		$usuario = $this->business->validarUsuario($usuario);
-		
-		if($usuario) {
-			$_SESSION['current_user'] = $usuario;
-		}
+
+		$this->_efetuarLogin($usuario);
+
 	}
-	
+
 	public function efetuarLogin($dadosLogin){
 		$usuario = null;
 		if($this->verificaCamposLogin($dadosLogin)){
 			$usuario = $this->validarUsuario($dadosLogin['email'], $dadosLogin['senha']);
 		}
-		
-		if($usuario){
-			session_start();
-			$_SESSION['current_user'] = $usuario;
-			return true;
-		}
-		else {
-			return false;
-		}
+
+		$this->_efetuarLogin($usuario);
+
 	}
-	
+
+
 	public function registrarUsuario($content) {
 		$nome = $content['nome'];
 		$email = $content['email'];
 		$senha = $content['senha'];
 		$confirmacao = $content['confirmacao'];
-		
+
 		$u = new Usuario($nome, $email, $senha, $confirmacao);
 		$this->business->salvar($u);
 	}

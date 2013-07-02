@@ -1,5 +1,5 @@
  <?php
-	session_start();
+	session_start("usuario");
 	session_destroy();
 	header("location: login.php");
  ?>

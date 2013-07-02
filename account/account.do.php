@@ -13,7 +13,8 @@ if($_GET && $_GET['action'] && $_POST) {
 			$controller->validarUsuario($_POST);
 			header("location: ../account");
 		} catch(Exception $e) {
-			echo "Problemas no registro =/: ".$e->getMessage();
+			// TODO colocar codigo do erro
+			echo "location: register.php?error=1";
 		}
 	}
 
@@ -22,7 +23,8 @@ if($_GET && $_GET['action'] && $_POST) {
 			$controller->validarUsuario($_POST);
 			header("location: ../account");
 		} catch (Exception $e) {
-			header("location: login.jsp?error=1");
+// 			TODO colocar codigo do erro
+			header("location: login.php?error=1");
 		}
 	}
 }

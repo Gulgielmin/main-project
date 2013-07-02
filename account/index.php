@@ -1,7 +1,9 @@
 <?php
 include '../app/utils/session_utils.php';
 
-if(session_started()) {
+$started = session_started();
+
+if($started) {
 	header("location: profile.php");
 }
 else {

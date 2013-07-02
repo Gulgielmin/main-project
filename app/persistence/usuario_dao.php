@@ -27,7 +27,7 @@ class DefaultUsuarioDAO extends PDOConnectionFactory implements UsuarioDAO{
 		$stmt->bindValue('email', $email, PDO::PARAM_STR);
 		$stmt->bindValue('senha', $senha, PDO::PARAM_STR);
 		
-		$ok = $stmt->execute();
+		$stmt->execute();
 				
 		$usuario = $stmt->fetch(PDO::FETCH_OBJ);
 				

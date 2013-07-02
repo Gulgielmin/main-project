@@ -1,5 +1,5 @@
 <?php 
-include 'app/utils/session_utils.php';
+require 'app/utils/session_utils.php';
 
 if (session_started()) {
 	header("location: account/profile.php");

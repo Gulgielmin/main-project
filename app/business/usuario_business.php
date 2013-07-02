@@ -10,7 +10,7 @@ class UsuarioBusiness extends Business{
 	}
 
 	public function validarUsuario($user){
-		$ok = $this->dao->validarUsuario($user->email, $user->senha);
+		$ok = $this->dao->validarUsuario($user->getEmail(), $user->getSenha());
 		return $ok;
 	}
 

@@ -1,13 +1,15 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
 <?php require '../app/utils/session_utils.php';?>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<link rel="stylesheet" href="../shared/css/style.css" type="text/css">
-<link rel="stylesheet" href="css/login.css" type="text/css">
-<title>Savant</title>
-</head>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+		<link rel="stylesheet" href="../shared/css/style.css" type="text/css">
+		<link rel="stylesheet" href="css/login.css" type="text/css">
+		<title>Savant - Login</title>
+	</head>
+	
 <body>
 
 	<div class="root">
@@ -17,6 +19,7 @@
 		<?php require '../shared/navigation_bar.php';?>
 		
 		<div class="content">
+			
 			<div class="login">
 				<h1>Retornando a esta página?</h1>
 				Acesse aqui, usando seu nome de usu�rio e a sua senha.
@@ -29,6 +32,7 @@
 
 				</form>
 			</div>
+			
 			<div class="register">
 			<h1>É seu primeiro acesso?</h1>
 				Para o acesso completo ao Savant voc� precisa se cadastrar como
@@ -47,7 +51,7 @@
 				<button class="button">Cadastro</button>
 			</div>
 		</div>
-		<div class="footer">Savant, 2013. Todos os direitos reservados.</div>
+		<?php require '../shared/footer.php';?>
 	</div>
 
 </body>

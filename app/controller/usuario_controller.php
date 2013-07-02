@@ -17,10 +17,13 @@ class UsuarioController{
 			return true;	
 	}
 	
-	public function validarUsuario($email, $senha){
-		$usuario = null;
-		$usuario = $this->business->validarUsuario($email, $senha);
-		return $usuario;
+	public function validarUsuario($content){
+		$usuario = new Usuario(NULL, $content['email'], $content['senha'], NULL);
+		$usuario = $this->business->validarUsuario($usuario);
+		
+		if($usuario) {
+			$_SESSION['current_user'] = $usuario;
+		}
 	}
 	
 	public function efetuarLogin($dadosLogin){

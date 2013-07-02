@@ -12,7 +12,7 @@ class ProjetoController{
 		$this->business = new ProjetoBusiness();
 	}
 
-	public function cria($post, $idUsuario){
+	public function criarProjeto($post, $idUsuario){
 		$nome = $post['nomeProjeto'];
 		$inicio = $this->converter_data($post['dataInicio']);
 		$fim = $this->converter_data($post['dataTermino']);
@@ -27,12 +27,12 @@ class ProjetoController{
 		return $sucesso;
 	}
 
-	public function listaProjeto($idUsuario){
+	public function listarProjeto($idUsuario){
 
 		return $this->business->listaProjeto($idUsuario);
 	}
 
-	public function buscaProjeto($idProjeto){
+	public function buscarProjeto($idProjeto){
 
 		$busca = $this->business->buscaProjeto($idProjeto);
 		$projeto = new Projeto($busca->idProjeto, $busca->nome_projeto, $this->converter_data($busca->inicio), $this->converter_data($busca->fim), $busca->Periodicidade_id, $busca->valor, $busca->qtdPeriodos, $this->converter_data($busca->data), $busca->idProjeto, $busca->Custo_id);
@@ -40,14 +40,14 @@ class ProjetoController{
 		return $projeto;
 	}
 	
-	public function excluiProjeto($idProjeto){
+	public function excluirProjeto($idProjeto){
 	
 		$ok = $this->business->exclui($idProjeto);
 		
 		return $ok;
 	}
 	
-	public function alteraProjeto($post){
+	public function alterarProjeto($post){
 	
 		$idProjeto = $post['idProjeto'];
 		$nome = $post['nomeProjeto'];

@@ -9,17 +9,17 @@ class ProjetoBusiness extends Business{
 		$this->dao = new DefaultProjetoDAO();
 	}
 
-	public function salvarNovoProjeto($projeto){
+	public function salvarProjeto($projeto){
 		$ok = $this->dao->salvarProjeto($projeto);
 		return $ok;
 	}
 
-	public function alterar($projeto){
+	public function alterarProjeto($projeto){
 
 		$ok = $this->dao->alterarProjeto($projeto);
 	}
 
-	public function listaProjeto($idUsuario){
+	public function listarProjeto($idUsuario){
 		$ok = $this->dao->listarProjetosPorUsuario($idUsuario);
 		return $ok;
 	}

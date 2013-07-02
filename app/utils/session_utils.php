@@ -10,4 +10,10 @@ function session_started() {
 	}
 	return false;
 }
+
+function redirect_if_no_user($url) {
+	if(!session_started()) {
+		header("location: ".$url);
+	}
+}
 ?>

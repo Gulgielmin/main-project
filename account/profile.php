@@ -1,6 +1,10 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
-<?php require '../app/utils/session_utils.php';?>
+<?php
+
+require '../app/utils/session_utils.php';
+redirect_if_no_user('../account/login.php');
+?>
 
 <html>
 	<head>
@@ -20,7 +24,7 @@
 		
 		<div class="content">
 			
-		<!-- Código para exibir o perfil -->
+		<?php echo "<h2>Olah ".$_SESSION['usuario.nome']."!</h2>"?>
 		
 		</div>
 		<?php require '../shared/footer.php';?>

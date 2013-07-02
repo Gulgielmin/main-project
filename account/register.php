@@ -4,7 +4,7 @@
 
 <html>
 	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<link rel="stylesheet" href="../shared/css/style.css" type="text/css">
 		<link rel="stylesheet" href="css/register.css" type="text/css">
 		<title>Savant - Cadastro de usuário</title>

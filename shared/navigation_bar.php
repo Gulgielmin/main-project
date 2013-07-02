@@ -4,7 +4,7 @@
 		<ul>
 			<li><a href="">Dashboard</a></li>
 			<li><a href="">Projeto</a></li>
-			<li><a href="">Administra��o</a></li>
+			<li><a href="">Administração</a></li>
 		</ul>
 	</div>
 	

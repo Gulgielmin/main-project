@@ -8,7 +8,7 @@ redirect_if_no_user('../account/login.php');
 
 <html>
 	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<link rel="stylesheet" href="../shared/css/style.css" type="text/css">
 		<!--  colocar aqui o css dessa página -->
 		<title>Savant - Perfil</title>

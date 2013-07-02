@@ -4,7 +4,7 @@
 
 <html>
 	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<link rel="stylesheet" href="../shared/css/style.css" type="text/css">
 		<link rel="stylesheet" href="css/login.css" type="text/css">
 		<title>Savant - Login</title>
@@ -22,7 +22,7 @@
 			
 			<div class="login">
 				<h1>Retornando a esta página?</h1>
-				Acesse aqui, usando seu nome de usu�rio e a sua senha.
+				Acesse aqui, usando seu nome de usuário e a sua senha.
 				<form action="account.do.php?action=login" method="post">
 
 					<label for="email">Usuário: </label> <input type="text" name="email" id="email" value="" />
@@ -35,18 +35,18 @@
 			
 			<div class="register">
 			<h1>É seu primeiro acesso?</h1>
-				Para o acesso completo ao Savant voc� precisa se cadastrar como
-				usu�rio do site. Siga os seguintes passos:
+				Para o acesso completo ao Savant você precisa se cadastrar como
+				usuário do site. Siga os seguintes passos:
 				<ul>
-					<li>Preencha o Formul�rio de Cadastramento com os seus dados.</li>
-					<li>Uma mensagem de confirma��o da inscri��o ser� enviada
-						imediatamente ao seu endere�o de email.</li>
-					<li>Visite o endere�o web indicado na mensagem para confirmar
-						o seu cadastramento automaticamente e come�ar a navegar.</li>
+					<li>Preencha o Formulário de Cadastramento com os seus dados.</li>
+					<li>Uma mensagem de confirmação da inscrição será enviada
+						imediatamente ao seu endereço de email.</li>
+					<li>Visite o endereço web indicado na mensagem para confirmar
+						o seu cadastramento automaticamente e começar a navegar.</li>
 					<li>Acesse o seu curso clicando o nome correspondente na lista
-						de cursos dispon�veis.</li>
-					<li>Quando voc� retornar ao site, para entrar no curso basta
-						usar o seu nome de usu�rio e a sua senha nesta p�gina de acesso.</li>
+						de cursos disponíveis.</li>
+					<li>Quando você retornar ao site, para entrar no curso basta
+						usar o seu nome de usuário e a sua senha nesta página de acesso.</li>
 				</ul>
 				<form action="register.php">
 					<input class="button" type="submit" value="Cadastro" />

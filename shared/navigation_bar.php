@@ -23,7 +23,7 @@
 
 		<div id="left">
 			<ul>
-				<li><a href="">Entrar</a></li>
+				<li><a href="../account/login.php">Entrar</a></li>
 			</ul>
 		</div>
 

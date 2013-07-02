@@ -48,7 +48,9 @@
 					<li>Quando voc� retornar ao site, para entrar no curso basta
 						usar o seu nome de usu�rio e a sua senha nesta p�gina de acesso.</li>
 				</ul>
-				<button class="button">Cadastro</button>
+				<form action="register.php">
+					<input class="button" type="submit" value="Cadastro" />
+				</form>
 			</div>
 		</div>
 		<?php require '../shared/footer.php';?>

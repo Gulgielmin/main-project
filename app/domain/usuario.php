@@ -3,17 +3,14 @@
 class Usuario{
 	
 	private $idUsuario;
-	private $usuario;
 	private $nome;
 	private $email;
 	private $senha;
 	
-	public function __construct($nome, $email, $senha, $usuario, $confirmacao=NULL,$idUsuario=""){
+	public function __construct($nome, $email, $senha, $confirmacao=NULL,$idUsuario=""){
 		$this->setIdUsuario($idUsuario);
 		$this->setNome($nome);
 		$this->setEmail($email);
-		
-		$this->usuario = $usuario;
 		
 		if($confirmacao == NULL) {
 			$this->setSenha($senha);

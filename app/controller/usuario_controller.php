@@ -31,11 +31,10 @@ class UsuarioController{
 		if($this->verificaCamposLogin($dadosLogin)){
 			$usuario = $this->validarUsuario($dadosLogin['email'], $dadosLogin['senha']);
 		}
+		
 		if($usuario){
 			session_start();
-			$_SESSION['idUsuario'] = $usuario->idUsuario;
-			$_SESSION['nomeUsuario'] = $usuario->nome;
-			$_SESSION['emailUsuario'] = $usuario->email;
+			$_SESSION['current_user'] = $usuario;
 			return true;
 		}
 		else {
@@ -45,13 +44,12 @@ class UsuarioController{
 	
 	public function registrarUsuario($content) {
 		$nome = $content['nome'];
-		$usuario = $content['usuario'];
 		$email = $content['email'];
 		$senha = $content['senha'];
 		$confirmacao = $content['confirmacao'];
 		
-		$u = new Usuario($nome, $email, $senha,$usuario,$confirmacao);
-		$this->business->salva($u);
+		$u = new Usuario($nome, $email, $senha, $confirmacao);
+		$this->business->salvar($u);
 	}
 
 	public function consultaUsuario($idUsuario){

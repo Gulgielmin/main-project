@@ -62,7 +62,7 @@ input {
 	border-radius: 3px;
 }
 
-.button {
+input.button {
 	font-weight: bold;
 	line-height: 1;
 	padding: 6px 10px;

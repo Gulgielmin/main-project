@@ -20,14 +20,14 @@ class UsuarioBusiness extends Business{
 	}
 
 	public function salvar($user){
-		
+		$this->dao->salvarUsuario($user);
 	}
 
 	public function alterar($user){
 		$ok = $this->dao->alterarConta($user);
 		return $ok;
 	}
-	public function exclui($id){
+	public function excluir($id){
 	}
 }
 

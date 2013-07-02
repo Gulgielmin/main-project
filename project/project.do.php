@@ -1,41 +1,36 @@
 ﻿<?php
 
-include $_SERVER['DOCUMENT_ROOT'].'/Savant/app/controller/ProjetoController.php';
-
-define("LISTA_PROJETO",1);
-define("CADASTRO",2);
-define("ALTERA",3);
-define("EXCLUI",4);
+require '../app/controller/projeto_controller.php';
 
 $_SESSION['idUsuario'] = 1;
 
 //---Para tratar requisições de formulários
 if($_POST) { //Se houver requisição...
-	$acao = $_REQUEST['action'];
+	$acao = $_GET['action'];
 	$retorno = null;
 	
-	if($acao==LISTA_PROJETO)
+	if($acao=='list')
 			try {
 				$retorno = listaProjeto($_SESSION['idUsuario']);
 			}
 			catch (Exception $ex) {
 				echo "ERRO: ".$ex->getMessage();
 			}
-	else if($acao==CADASTRO)
+	else if($acao=='new')
 			try {
 				$retorno = cria($_POST, $_SESSION['idUsuario']);
 			}
 			catch (Exception $ex) {
 				echo "ERRO: ".$ex->getMessage();
 			}
-	else if($acao==ALTERA)
+	else if($acao=='update')
 			try {
 				$retorno = altera($_POST);
 			}
 			catch (Exception $ex) {
 				echo "ERRO: ".$ex->getMessage();
 			}
-	else if($acao==EXCLUI){
+	else if($acao=='delete'){
 			try {				
 				$retorno = exclui($_REQUEST['id']);
 				if($retorno)

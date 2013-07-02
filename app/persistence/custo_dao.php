@@ -1,9 +1,11 @@
 ﻿<?php
-include_once 'PDOConnectionFactory.php';
+
+include_once 'pdo_connection_factory.php';
+
 interface CustoDAO {
 	
-	public function salvaDAO($custo);
-	public function alteraCustoDAO($custo);
+	public function salvarCusto($custo);
+	public function alterarCusto($custo);
 }
 
 class DefaultCustoDAO extends PDOConnectionFactory implements CustoDAO{
@@ -14,7 +16,7 @@ class DefaultCustoDAO extends PDOConnectionFactory implements CustoDAO{
 		$this->conex = PDOConnectionFactory::criaConexao();
 	}
 	
-	public function salvaDAO($custo){
+	public function salvarCusto($custo){
 		try{
 			$stmt = $this->conex->prepare("INSERT INTO savant.custo (idCusto, Periodicidade_id, valor, qtdPeriodos, data) VALUES (:id, :periodicidade, :valor, :qtdperiodos, :data)");
 			
@@ -37,7 +39,7 @@ class DefaultCustoDAO extends PDOConnectionFactory implements CustoDAO{
 			echo "Erro: ".$ex->getMessage(); 
 		}
 	}
-	public function alteraCustoDAO($custo){
+	public function alterarCusto($custo){
 		$ok = null;
 		
 		try{

@@ -1,7 +1,7 @@
 <?php
 
-include $_SERVER['DOCUMENT_ROOT'].'/Savant/app/business/UsuarioBusiness.php';
-include $_SERVER['DOCUMENT_ROOT'].'/Savant/app/domain/Usuario.php';
+include '../../app/business/usuario_business.php';
+include '../../app/domain/usuario.php';
 
 class UsuarioController{
 	private $business;

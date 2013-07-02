@@ -1,5 +1,5 @@
 <?php
-include '../app/controller/UsuarioController.php';
+include '../app/controller/usuario_controller.php';
 
 if($_GET && $_GET['action']) {
 	

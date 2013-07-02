@@ -1,8 +1,8 @@
 
 ﻿<?php
 
-include $_SERVER['DOCUMENT_ROOT'].'/Savant/app/business/ProjetoBusiness.php';
-include $_SERVER['DOCUMENT_ROOT'].'/Savant/app/domain/Projeto.php';
+include '../../app/business/projeto_business.php';
+include '../../app/domain/projeto.php';
 
 class ProjetoController{	
 

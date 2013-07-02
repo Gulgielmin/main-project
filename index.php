@@ -1,9 +1,10 @@
 <?php 
+include 'app/utils/session_utils.php';
 
-if (!isset($_SESSION['idUsuario']) OR !isset($_SESSION['nomeUsuario'])) {
-	include 'logout.php';
+if (session_started()) {
+	header("location: account/profile.php");
 }
 else {
-	header("location: projeto/index.php");
+	header("location: account/login.php");
 }
 ?>

@@ -1,3 +1,5 @@
+<?php include '../app/utils/session_utils.php';?>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -9,34 +11,14 @@
 <body>
 
 	<div class="root">
-		<div class="header">
-			<div id="left">
-				<img src="../shared/img/savant_logo_small.png" />
-			</div>
-			<div id="right"></div>
-		</div>
-		<div class="navbar">
-			<div id="left">
-				<ul>
-					<li><a href="">Dashboard</a></li>
-					<li><a href="">Projeto</a></li>
-					<li><a href="">Administra��o</a></li>
-				</ul>
-			</div>
-
-			<div id="right">
-
-				<div id="left">
-					<ul>
-						<li><a href="">Entrar</a></li>
-					</ul>
-				</div>
-
-			</div>
-		</div>
+		
+		<?php include '../shared/header.php';?>
+		
+		<?php include '../shared/navigation_bar.php';?>
+		
 		<div class="content">
 			<div class="login">
-				<h1>Retornando a esta p�gina?</h1>
+				<h1>Retornando a esta página?</h1>
 				Acesse aqui, usando seu nome de usu�rio e a sua senha.
 				<form action="account.do.php?action=login">
 
@@ -48,7 +30,7 @@
 				</form>
 			</div>
 			<div class="register">
-			<h1>� seu primeiro acesso?</h1>
+			<h1>É seu primeiro acesso?</h1>
 				Para o acesso completo ao Savant voc� precisa se cadastrar como
 				usu�rio do site. Siga os seguintes passos:
 				<ul>

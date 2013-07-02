@@ -1,9 +1,15 @@
 <?php
-include_once 'PDOConnectionFactory.php';
+include_once 'pdo_connection_factory.php';
 
 interface UsuarioDAO {
 
-	public function validarUsuarioDAO($email, $senha);
+	public function validarUsuario($email, $senha);
+
+	public function salvarUsuario($usuario);
+	
+	public function alterarConta($usuario);
+
+	public function consultarUsuario($idUsuario);
 	
 }
 
@@ -15,7 +21,7 @@ class DefaultUsuarioDAO extends PDOConnectionFactory implements UsuarioDAO{
 		$this->conex = PDOConnectionFactory::criaConexao();
 	}
 
-	public function validarUsuarioDAO($email, $senha){
+	public function validarUsuario($email, $senha){
 		$usuario = null;
 		$stmt = $this->conex->prepare("SELECT * FROM usuario WHERE email = :email AND senha = :senha LIMIT 1");
 		$stmt->bindValue('email', $email, PDO::PARAM_STR);
@@ -38,16 +44,13 @@ class DefaultUsuarioDAO extends PDOConnectionFactory implements UsuarioDAO{
 		$stmt->execute();
 	}
 	
-	public function consultaUsuarioDAO($idUsuario){
+	public function consultarUsuario($idUsuario){
 		$usuario = null;
 		$stmt = $this->conex->prepare("SELECT * FROM usuario WHERE idUsuario = :idUsuario LIMIT 1");
 		$stmt ->bindValue('idUsuario', $idUsuario, PDO::PARAM_INT);
-		try {
-			$ok = $stmt->execute();
-		}
-		catch (Exception $ex){
-			echo 'ERRO: '.$ex->getMessage();
-		}
+		
+		$stmt->execute();
+		
 		$usuario = $stmt->fetch(PDO::FETCH_OBJ);
 	
 		return $usuario;
@@ -55,7 +58,7 @@ class DefaultUsuarioDAO extends PDOConnectionFactory implements UsuarioDAO{
 
 
 	
-	public function alteraConta($id, $nome, $email, $senha){
+	public function alterarConta($usuario){
 		$ok = null;
 		try{
 	

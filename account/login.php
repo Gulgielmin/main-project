@@ -25,7 +25,7 @@
 				Acesse aqui, usando seu nome de usuário e a sua senha.
 				<form action="account.do.php?action=login" method="post">
 
-					<label for="email">Usuário: </label> <input type="text" name="email" id="email" value="" />
+					<label for="email">Email: </label> <input type="text" name="email" id="email" value="" />
 					<label for="senha">Senha:</label> <input type="password" name="senha" id="senha" value="" />
 					
 					<input class="button" type="submit" value="Entrar">

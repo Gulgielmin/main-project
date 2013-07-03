@@ -21,57 +21,26 @@
 
 			<form method="post" action="handlerProjeto.php?action=2"
 				id="formCadastroProjeto">
-				<table id="tabela-dados-projeto">
-					<tr>
-						<th colspan="2" class="align-left">Nome:&nbsp;&nbsp; <input
-							type="text" name="nomeProjeto" value="" />
-						</th>
-					</tr>
-					<tr>
-						<th class="align-left">Início: <input type="text"
-							name="dataInicio" id="from" value="" style="width: 40%;" />
-						</th>
-						<th class="align-left">Fim: <input type="text" name="dataTermino"
-							id="to" value="" style="width: 40%;" />
-						</th>
-					</tr>
-					<tr>
-						<th colspan="2" class="custo-tr-title">DADOS DE CUSTOS</th>
-					</tr>
-					<tr>
-						<th class="align-right">Valor:</th>
-						<td><input type="text" name="previsaoCusto" value="" /></td>
-					</tr>
-					<tr>
-						<th class="align-right">Periodicidade de Desconto do Valor:</th>
-						<td><select name="periodicidade">
-								<option value="1">Única</option>
-								<option value="2">Diária</option>
-								<option value="3">Semanal</option>
-								<option value="4">Quinzenal</option>
-								<option value="5">Mensal</option>
-								<option value="6">Semestral</option>
-								<option value="7">Anual</option>
-						</select>
-						</td>
-					</tr>
-					<tr>
-						<th class="align-right">Quantidade de Períodos:</th>
-						<td><input type="text" name="quantidadePeriodos" value="" /></td>
-					</tr>
-					<tr>
-						<th class="align-right">Data do Primeiro Desconto de Valor:</th>
-						<td><input type="text" name="dataDesconto" class="datepicker"
-							style="width: 55%;" value="" /></td>
-					</tr>
-					<tr>
-						<td><input type="submit" value="Enviar" />
-						</td>
-						<td><input type="button" class="button" value="Cancelar"
-							id="botaoCancelar" />
-						</td>
-					</tr>
-				</table>
+				<label for="nomePojeto">Nome:</label><input type="text"
+					name="nomeProjeto" /> <label for="dataInicio">In&iacute;cio:</label><input
+					type="text" name="dataInicio" id="from" /> <label for="dataTermino">Fim:</label>
+				<input type="text" name="dataTermino" id="to" /> <label
+					for="dadosCusto">DADOS DE CUSTOS</label> <label for="previsaoCusto">Valor:</label><input
+					type="text" name="previsaoCusto" /> <label for="periodiciadade"></label>
+				<select name="periodicidade">
+					<option value="1">Única</option>
+					<option value="2">Diária</option>
+					<option value="3">Semanal</option>
+					<option value="4">Quinzenal</option>
+					<option value="5">Mensal</option>
+					<option value="6">Semestral</option>
+					<option value="7">Anual</option>
+				</select> <label for="quantidadePeriodos">Quantidade de Períodos:</label>
+				<input type="text" name="quantidadePeriodos" value="" /> <label
+					for="dataDesconto">Data do Primeiro Desconto de Valor:</label> <input
+					type="text" name="dataDesconto" class="datepicker" /> <input
+					type="submit" value="Enviar" /> <input type="button" class="button"
+					value="Cancelar" id="botaoCancelar" />
 			</form>
 
 			<div id="sidebar">

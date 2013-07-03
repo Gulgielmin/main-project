@@ -1,8 +1,8 @@
 
 ﻿<?php
 
-include '../../app/business/projeto_business.php';
-include '../../app/domain/projeto.php';
+include '../app/business/projeto_business.php';
+include '../app/domain/projeto.php';
 
 class ProjetoController{	
 
@@ -29,7 +29,7 @@ class ProjetoController{
 
 	public function listarProjeto($idUsuario){
 
-		return $this->business->listaProjeto($idUsuario);
+		return $this->business->listarProjeto($idUsuario);
 	}
 
 	public function buscarProjeto($idProjeto){

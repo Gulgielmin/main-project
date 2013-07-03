@@ -1,7 +1,7 @@
 ﻿<?php 
-include '../../app/persistence/projeto_dao.php';
-include '../../app/persistence/custo_dao.php';
-include '../../app/business/business.php';
+include '../app/persistence/projeto_dao.php';
+include '../app/persistence/custo_dao.php';
+include '../app/business/business.php';
 
 class ProjetoBusiness extends Business{
 

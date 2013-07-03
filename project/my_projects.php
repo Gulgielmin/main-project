@@ -1,7 +1,11 @@
 
 <?php
 
+ini_set('display_errors', 'Off');
+error_reporting(E_ALL);
+
 require '../app/utils/session_utils.php';
+require '../app/domain/usuario.php';
 require 'project.do.php';
 
 if(!session_started()) {
@@ -12,7 +16,11 @@ $usuario = NULL;
 $meusProjetos = NULL;
 
 try {
-	$usuario = $_SESSION['current_user'];
+	//$usuario = $_SESSION['current_user'];
+	$usuario = new Usuario(NULL,NULL,NULL);
+	$usuario->setEmail($_SESSION['usuario.email']);
+	$usuario->setIdUsuario($_SESSION['usuario.id']);
+	$usuario->setNome($_SESSION['usuario.nome']);
 	$meusProjetos = listaProjeto($usuario->getIdUsuario());
 }
 catch(Exception $e) {

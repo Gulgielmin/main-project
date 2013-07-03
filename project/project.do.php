@@ -58,7 +58,7 @@ function listaProjeto($IdUsuario){
 
 	$controller = new ProjetoController();
 
-	$sucesso = $controller->listaProjeto($IdUsuario);
+	$sucesso = $controller->listarProjeto($IdUsuario);
 	
 	return $sucesso;
 }

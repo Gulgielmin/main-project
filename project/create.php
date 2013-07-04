@@ -6,6 +6,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" href="../shared/css/style.css" type="text/css">
+<link rel="stylesheet" href="css/create.css" type="text/css">
 <title>Savant - Novo projeto</title>
 </head>
 
@@ -21,27 +22,42 @@
 
 			<form method="post" action="handlerProjeto.php?action=2"
 				id="formCadastroProjeto">
-				<label for="nomePojeto">Nome:</label><input type="text"
-					name="nomeProjeto" /> <label for="dataInicio">In&iacute;cio:</label><input
-					type="text" name="dataInicio" id="from" /> <label for="dataTermino">Fim:</label>
-				<input type="text" name="dataTermino" id="to" /> <label
-					for="dadosCusto">DADOS DE CUSTOS</label> <label for="previsaoCusto">Valor:</label><input
-					type="text" name="previsaoCusto" /> <label for="periodiciadade"></label>
-				<select name="periodicidade">
-					<option value="1">Única</option>
-					<option value="2">Diária</option>
-					<option value="3">Semanal</option>
-					<option value="4">Quinzenal</option>
-					<option value="5">Mensal</option>
-					<option value="6">Semestral</option>
-					<option value="7">Anual</option>
-				</select> <label for="quantidadePeriodos">Quantidade de Períodos:</label>
-				<input type="text" name="quantidadePeriodos" value="" /> <label
-					for="dataDesconto">Data do Primeiro Desconto de Valor:</label> <input
-					type="text" name="dataDesconto" class="datepicker" /> <input
-					type="submit" value="Enviar" /> <input type="button" class="button"
-					value="Cancelar" id="botaoCancelar" />
-			</form>
+				<div class="labels">
+					<label for="nomePojeto">Nome:</label>
+					<label for="dataInicio">In&iacute;cio:</label>
+					<label for="dataTermino">Fim:</label>
+					<label for="dadosCusto">DADOS DE CUSTOS</label><br />
+					<label for="previsaoCusto">Or&ccedil;amento:</label>
+					<label for="periodiciadade"></label>
+					<label for="quantidadePeriodos">Quantidade de Períodos:</label>
+					 <label for="dataDesconto">Data do Primeiro Desconto de Valor:</label>
+				
+				
+				</div>
+				
+				<div class="inputs">
+				
+					<input type="text" name="nomeProjeto" /> 
+					<input type="text" name="dataInicio" id="from" /> 
+					<input type="text" name="dataTermino" id="to" />  
+					<input type="text" name="previsaoCusto" /> 
+					<select name="periodicidade">
+						<option value="1">Única</option>
+						<option value="2">Diária</option>
+						<option value="3">Semanal</option>
+						<option value="4">Quinzenal</option>
+						<option value="5">Mensal</option>
+						<option value="6">Semestral</option>
+						<option value="7">Anual</option>
+					</select> 
+					<input type="text" name="quantidadePeriodos" value="" /> 
+					<input type="text" name="dataDesconto" class="datepicker" />
+					<input type="submit" value="Enviar" /> 
+					<input type="button" class="button" value="Cancelar" id="botaoCancelar" />
+				
+				</div>
+				
+				</form>
 
 			<div id="sidebar">
 				<div>

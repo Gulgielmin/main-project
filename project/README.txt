@@ -1,1 +1,0 @@
-Os arquivos já estão na pasta 'project', então não faz sentido repetir o nome "Projeto" em todos os arquivos.

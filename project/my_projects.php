@@ -80,7 +80,7 @@ catch(Exception $e) {
 				<div>
 					<h2 class="title">Opções</h2>
 					<ul>
-						<li><a href="cadastrarProjeto.php">Cadastrar Novo Projeto</a></li>
+						<li><a href="create.php">Cadastrar Novo Projeto</a></li>
 					</ul>
 				</div>
 			</div>

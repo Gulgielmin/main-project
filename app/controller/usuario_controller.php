@@ -38,16 +38,6 @@ class UsuarioController{
 
 	}
 
-	public function efetuarLogin($dadosLogin){
-		$usuario = null;
-		if($this->verificaCamposLogin($dadosLogin)){
-			$usuario = $this->validarUsuario($dadosLogin['email'], $dadosLogin['senha']);
-		}
-
-		$this->_efetuarLogin($usuario);
-
-	}
-
 
 	public function registrarUsuario($content) {
 		$nome = $content['nome'];

@@ -6,8 +6,11 @@ class Usuario{
 	private $nome;
 	private $email;
 	private $senha;
+	private $modo_autenticacao;
 
-	public function __construct($nome, $email, $senha, $confirmacao=NULL,$idUsuario=""){
+	public function __construct($nome, $email, $senha, $confirmacao=NULL,$modo_autenticacao=FALSE,$idUsuario=""){
+		$this->modo_autenticacao = $modo_autenticacao;
+		
 		$this->setIdUsuario($idUsuario);
 		$this->setNome($nome);
 		$this->setEmail($email);
@@ -39,7 +42,7 @@ class Usuario{
 		$this->idUsuario = $idUsuario;
 	}
 	public function setNome($nome){
-		if ($nome ==NULL || $nome == "" ){
+		if (!$this->modo_autenticacao && ($nome ==NULL || $nome == "")){
 			throw new Exception('Nome vazio.');
 		}
 		$this->nome = $nome;

@@ -23,8 +23,8 @@ function process_login() {
 		$controller->validarUsuario($_POST);
 		header("location: ../account");
 	} catch (Exception $e) {
-		// 			TODO colocar codigo do erro
-		header("location: login.php?error=1");
+		echo $e->getMessage();
+		//header("location: login.php?error=1");
 	}
 }
 

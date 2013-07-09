@@ -31,7 +31,7 @@ class UsuarioController{
 	}
 
 	public function validarUsuario($content){
-		$usuario = new Usuario(NULL, $content['email'], $content['senha'], NULL);
+		$usuario = new Usuario(NULL, $content['email'], $content['senha'], NULL,TRUE);
 		$usuario = $this->business->validarUsuario($usuario);
 
 		$this->_efetuarLogin($usuario);

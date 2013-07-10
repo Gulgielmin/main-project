@@ -4,7 +4,7 @@
  * @author Allan
  *
  */
-include $_SERVER['DOCUMENT_ROOT'].'/Savant/app/domain/custo.php';
+include dirname(__FILE__).'/custo.php';
 
 
 class Projeto{

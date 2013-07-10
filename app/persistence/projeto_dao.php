@@ -1,5 +1,5 @@
 ﻿<?php
-include_once 'pdo_connection_factory.php';
+require_once 'pdo_connection_factory.php';
 
 interface ProjetoDAO {
 
@@ -17,7 +17,7 @@ class DefaultProjetoDAO extends PDOConnectionFactory implements ProjetoDAO{
 	private $conex = null;
 
 	public function __construct(){
-		$this->conex = PDOConnectionFactory::criaConexao();
+		$this->conex = $this->criaConexao();
 	}
 
 	public function salvarProjeto($projeto){

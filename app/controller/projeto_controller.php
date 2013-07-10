@@ -1,8 +1,8 @@
 
 ﻿<?php
 
-include '../app/business/projeto_business.php';
-include '../app/domain/projeto.php';
+include dirname(__FILE__).'/../business/projeto_business.php';
+include dirname(__FILE__).'/../domain/projeto.php';
 
 class ProjetoController{	
 

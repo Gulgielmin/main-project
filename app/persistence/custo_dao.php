@@ -1,6 +1,6 @@
 ﻿<?php
 
-include_once 'pdo_connection_factory.php';
+require_once 'pdo_connection_factory.php';
 
 interface CustoDAO {
 	
@@ -13,7 +13,7 @@ class DefaultCustoDAO extends PDOConnectionFactory implements CustoDAO{
 	private $conex = null;
 	
 	public function __construct(){
-		$this->conex = PDOConnectionFactory::criaConexao();
+		$this->conex = $this->criaConexao();
 	}
 	
 	public function salvarCusto($custo){

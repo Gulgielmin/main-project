@@ -1,6 +1,4 @@
-
 <?php
-
 ini_set('display_errors', 'Off');
 error_reporting(E_ALL);
 
@@ -70,7 +68,6 @@ catch(Exception $e) {
                         <center>
                         <a href="create.php">Cadastrar Novo Projeto</a>
                         </center>
-	
 					</div>
 				</div>
 			</div>

@@ -58,7 +58,7 @@ catch(Exception $e) {
                     <center>
                     		<div class="myprojectfont">
 								<h2 class="title">Meus Projetos</h2>
-							</div>
+						</div>
                      </center>
 						<ul>
 							<?php foreach ($meusProjetos as $projeto=>$nome){?>
@@ -67,20 +67,14 @@ catch(Exception $e) {
 							</a></li>
 							<?php }?>
 						</ul>
+                        <center>
+                        <a href="create.php">Cadastrar Novo Projeto</a>
+                        </center>
+	
 					</div>
 				</div>
 			</div>
 
-			<div id="sidebar">
-				<div>
-				</div>
-				<div>
-					<h2 class="title">Opções</h2>
-					<ul>
-						<li><a href="create.php">Cadastrar Novo Projeto</a></li>
-					</ul>
-				</div>
-			</div>
 
 
 		</div>

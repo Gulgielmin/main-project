@@ -10,12 +10,19 @@ class Usuario{
 
 	public function __construct($nome, $email, $senha, $confirmacao=NULL,$modo_autenticacao=FALSE,$idUsuario=""){
 		$this->modo_autenticacao = $modo_autenticacao;
-		
+
 		$this->setIdUsuario($idUsuario);
 		$this->setNome($nome);
 		$this->setEmail($email);
 
-		if($confirmacao == NULL) {
+		if ($senha == NULL || $senha == ''){
+			throw new Exception('Senha vazia.');
+		}
+		else if (!$this->_verificarSenha($senha)){
+			throw new Exception ('Senha fora do formato.');
+		}
+
+		else if($confirmacao == NULL) {
 			$this->setSenha($senha);
 		}
 		else if($senha == $confirmacao) {
@@ -59,27 +66,38 @@ class Usuario{
 		}
 	}
 	public function setSenha($senha){
-		$this->senha = $senha;
+		return	$this->senha = $senha;
 	}
-	
+
+	private function _verificarSenha($senha){
+		$tamanho = strlen($senha);
+
+		if(!($tamanho >= 5 && $tamanho < 15)) {
+			return false;
+		}else{
+			return true;
+		}
+
+	}
+
 	private function _verificarEmail($email){
 		$tamanho = strlen($email);
-		
+
 		if($tamanho < 5) {
 			return false;
 		}
-		
+
 		$pos_arroba = stripos($email, "@");
 		$pos_ponto = strrpos($email, ".");
-		
+
 		if($pos_arroba == -1 || $pos_ponto == -1) {
 			return false;
 		}
-		
+
 		if ($pos_ponto < $pos_arroba) {
 			return false;
 		}
-		
+
 		return true;
 	}
 }

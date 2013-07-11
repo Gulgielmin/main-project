@@ -3,6 +3,7 @@
 require dirname(__FILE__).'/../controller/usuario_controller.php';
 require 'SQLUtils.php';
 
+
 class CadastroTest extends PHPUnit_Framework_TestCase {
 
 	private $controller;
@@ -38,6 +39,44 @@ class CadastroTest extends PHPUnit_Framework_TestCase {
 
 	}
 
+	public function testCadastroSenhaIncorreta() {
+
+		$_POST['senha'] = '';
+		try {
+
+			$this->controller->registrarUsuario($_POST);
+			$this->assertFalse(TRUE,"Não deveria chegar aqui.");
+
+		}catch (Exception $e){
+			$this->assertEquals("Senha vazia.", $e->getMessage());
+		}
+		$obj = $this->db->query("SELECT * FROM usuario WHERE email='marcos@mail.com' LIMIT 1");
+
+		$_POST['senha'] = '123';
+		try {
+		
+			$this->controller->registrarUsuario($_POST);
+			$this->assertFalse(TRUE,"Não deveria chegar aqui.");
+		
+		}catch (Exception $e){
+			$this->assertEquals("Senha fora do formato.", $e->getMessage());
+		}
+		$obj = $this->db->query("SELECT * FROM usuario WHERE email='marcos@mail.com' LIMIT 1");
+		
+		$_POST['senha'] = '12323123124121213523123124123123';
+		try {
+		
+			$this->controller->registrarUsuario($_POST);
+			$this->assertFalse(TRUE,"Não deveria chegar aqui.");
+		
+		}catch (Exception $e){
+			$this->assertEquals("Senha fora do formato.", $e->getMessage());
+		}
+		$obj = $this->db->query("SELECT * FROM usuario WHERE email='marcos@mail.com' LIMIT 1");
+		
+
+	}
+
 	public function testCadastroConfirmacaoIncorreta() {
 
 		$_POST['confirmacao'] = '12345';
@@ -68,17 +107,17 @@ class CadastroTest extends PHPUnit_Framework_TestCase {
 
 		$obj = $this->db->query("SELECT * FROM usuario WHERE email='marcos@mail.com' LIMIT 1");
 		$this->assertFalse($obj);
-		
+
 		$_POST['nome'] = NULL;
 		try {
-		
+
 			$this->controller->registrarUsuario($_POST);
 			$this->assertFalse(TRUE,"Não deveria chegar aqui.");
-		
+
 		}catch (Exception $e){
 			$this->assertEquals("Nome vazio.", $e->getMessage());
 		}
-		
+
 		$obj = $this->db->query("SELECT * FROM usuario WHERE email='marcos@mail.com' LIMIT 1");
 		$this->assertFalse($obj);
 
@@ -94,6 +133,22 @@ class CadastroTest extends PHPUnit_Framework_TestCase {
 			$this->assertFalse(TRUE);
 
 		}catch (Exception $e){
+			//$this->assertEquals(true, $e->getMessage());
+		}
+
+		$obj = $this->db->query("SELECT * FROM usuario WHERE email='marcos@mail.com' LIMIT 1");
+		$this->assertFalse($obj);
+
+
+
+		$_POST['email'] = NULL;
+
+		try {
+
+			$this->controller->registrarUsuario($_POST);
+			$this->assertFalse(TRUE);
+
+		}catch (Exception $e){
 			$this->assertEquals("Email vazio.", $e->getMessage());
 		}
 
@@ -101,7 +156,5 @@ class CadastroTest extends PHPUnit_Framework_TestCase {
 		$this->assertFalse($obj);
 
 	}
-
 }
-
 ?>

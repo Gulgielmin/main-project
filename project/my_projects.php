@@ -1,6 +1,4 @@
-
 <?php
-
 ini_set('display_errors', 'Off');
 error_reporting(E_ALL);
 
@@ -33,7 +31,11 @@ catch(Exception $e) {
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" href="../shared/css/style.css" type="text/css">
-<!--  colocar aqui o css dessa página -->
+
+<style type="text/css">
+@import url("../project/css/myproject.css");
+</style>
+
 <title>Savant - Meus projetos</title>
 </head>
 
@@ -49,11 +51,13 @@ catch(Exception $e) {
 
 			<div id="content-sidebar">
 				<div class="post">
-					<div class="meta">
-						<h2 class="title">Meus Projetos</h2>
-					</div>
-					<br />
-					<div class="entry">
+
+					<div class="myprojectcontent">
+                    <center>
+                    		<div class="myprojectfont">
+								<h2 class="title">Meus Projetos</h2>
+						</div>
+                     </center>
 						<ul>
 							<?php foreach ($meusProjetos as $projeto=>$nome){?>
 							<li class="first"><a
@@ -61,29 +65,13 @@ catch(Exception $e) {
 							</a></li>
 							<?php }?>
 						</ul>
+                        <center>
+                        <a href="create.php">Cadastrar Novo Projeto</a>
+                        </center>
 					</div>
 				</div>
 			</div>
 
-			<div id="sidebar">
-				<div>
-					<h2 class="title">
-						Olá
-						<?php echo $usuario->getNome()?>
-						!
-					</h2>
-					<ul>
-						<li><a href="#">Meus Dados</a></li>
-						<li><a href="../account/logout.php">Sair</a></li>
-					</ul>
-				</div>
-				<div>
-					<h2 class="title">Opções</h2>
-					<ul>
-						<li><a href="create.php">Cadastrar Novo Projeto</a></li>
-					</ul>
-				</div>
-			</div>
 
 
 		</div>

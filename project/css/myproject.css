@@ -1,0 +1,41 @@
+@IMPORT url('navbar.css');
+body {
+	font-family: Helvetica, Verdana, Arial;
+	color: #454837;
+	font-size: 12pt;	
+}
+
+div.header #right {
+	float: right;
+}
+
+div.myprojectfont {
+	font-family: Helvetica, Verdana, Arial;
+	color: #ffffff;
+	margin-center:auto;
+	font-size: 12pt;
+		
+}
+
+div.myprojectcontent {
+	min-height: 120px;
+	background-color:#339933;
+	 
+/* borda arredondada da div para webkit*/
+-webkit-border-radius: 10px;
+ 
+/* borda arredondada da div moz*/
+-moz-border-radius: 10px;
+}
+
+div.footer {
+	font-size: 9pt;
+	color: #B3B3B3;
+	text-align: center;
+	padding-top: 10px;
+	border-top: 1px dashed #e0e3e1;
+}
+
+#centered {
+	margin: 0 auto;
+}

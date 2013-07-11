@@ -67,15 +67,6 @@ catch(Exception $e) {
 
 			<div id="sidebar">
 				<div>
-					<h2 class="title">
-						Olá
-						<?php echo $usuario->getNome()?>
-						!
-					</h2>
-					<ul>
-						<li><a href="#">Meus Dados</a></li>
-						<li><a href="../account/logout.php">Sair</a></li>
-					</ul>
 				</div>
 				<div>
 					<h2 class="title">Opções</h2>

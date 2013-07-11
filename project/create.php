@@ -10,6 +10,10 @@
 <title>Savant - Novo projeto</title>
 </head>
 
+<style type="text/css">
+@import url("../project/css/myproject.css");
+</style>
+
 <body>
 
 	<div class="root">
@@ -19,6 +23,7 @@
 		<?php require '../shared/navigation_bar.php';?>
 
 		<div class="content">
+        
 
 			<form method="post" action="handlerProjeto.php?action=2"
 				id="formCadastroProjeto">

@@ -2,7 +2,8 @@
 <phpunit>
 	<testsuites>
 		<testsuite name="Savant_Test_Suite">
-			<file>CadastroTest.php</file>
+			<file>CadastroProjetoTest.php</file>
+			<file>CadastroUsuarioTest.php</file>
 			<file>LoginTest.php</file>
 		</testsuite>
 	</testsuites>

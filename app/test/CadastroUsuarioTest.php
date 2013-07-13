@@ -22,7 +22,7 @@ class CadastroTest extends PHPUnit_Framework_TestCase {
 
 	public function tearDown() {
 		$sql = "DELETE FROM usuario WHERE email='marcos@mail.com';";
-		$this->db->exec($sql);
+
 		$sql = "DELETE FROM usuario WHERE nome='Marcos';";
 		$this->db->exec($sql);
 	}

@@ -3,6 +3,22 @@
 require_once dirname(__FILE__).'/../controller/usuario_controller.php';
 require_once 'SQLUtils.php';
 
+class AlternateSessionController extends SessionController{
+
+	public function doLogin($usuario) {
+		if($usuario) {
+			$_SESSION = array();
+			$_SESSION['usuario.id'] = $usuario->idUsuario;
+			$_SESSION['usuario.nome'] = $usuario->nome;
+			$_SESSION['usuario.email'] = $usuario->email;
+		}
+		else {
+			throw new Exception("User does not exists.");
+		}
+	}
+	
+}
+
 class LoginTest extends PHPUnit_Framework_TestCase {
 	
 	public function setUp() {
@@ -12,7 +28,7 @@ class LoginTest extends PHPUnit_Framework_TestCase {
 		$_POST['senha'] = '123456';
 		$_POST['confirmacao'] = '123456';
 		
-		$this->controller = new UsuarioController();
+		$this->controller = new UsuarioController(new AlternateSessionController());
 		$this->db = new SQLUtils();
 		
 		$this->controller->registrarUsuario($_POST);

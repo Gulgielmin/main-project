@@ -93,19 +93,7 @@ class UsuarioController{
 		}
 		
 	}
-
-	/**
-	 *
-	 * @param unknown $dadosLogin
-	 * @return boolean
-	 */
-	public function verificaCamposLogin($dadosLogin){
-		if ($dadosLogin['email'] == '' || $dadosLogin['senha'] == '' )
-			return false;
-		else
-			return true;
-	}
-
+	
 	/**
 	 * Valida um usuário e cria sua sessão
 	 * @param unknown $content
@@ -150,8 +138,8 @@ class UsuarioController{
 	 * @return o usuário associado com o id
 	 * @throws Exception caso nenhum usuário seja encontrado
 	 */
-	public function consultaUsuario($idUsuario){
-		$busca = $this->business->consultaUsuario($idUsuario);
+	public function consultarUsuario($idUsuario){
+		$busca = $this->business->consultar($idUsuario);
 		if($busca){
 			$usuario = new Usuario($busca->nome, $busca->email, $busca->senha, NULL,Usuario::MODO_NORMAL);
 			return $usuario;

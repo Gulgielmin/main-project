@@ -1,11 +1,12 @@
 <?php
 require_once dirname(__FILE__).'/../controller/usuario_controller.php';
+require_once 'AlternateSessionController.php';
 require_once 'SQLUtils.php';
 /*
  * Teste de Altera Cadastro de Usuario
- * 
- * 
- */
+*
+*
+*/
 class CadastroTest extends PHPUnit_Framework_TestCase {
 
 	private $controller;
@@ -23,11 +24,10 @@ class CadastroTest extends PHPUnit_Framework_TestCase {
 
 		$this->controller->registrarUsuario($_POST);
 	}
-	
-	public function tearDown() {
-		$sql = "DELETE FROM usuario WHERE email='marcos@mail.com';";
 
-		$sql = "DELETE FROM usuario WHERE nome='Marcos';";
+	public function tearDown() {
+		$sql = "DELETE FROM usuario WHERE email='marcos@mail.com'";
+		$sql = "DELETE FROM usuario WHERE nome='Marcos'";
 		$this->db->exec($sql);
 	}
 
@@ -146,6 +146,53 @@ class CadastroTest extends PHPUnit_Framework_TestCase {
 		}
 
 
+	}
+
+	public function testAlterarSenha() {
+
+		$this->controller->validarUsuario($_POST);
+		
+		$_POST['senha'] = 'abcdef';
+		$_POST['confirmacao'] = 'abcdef';
+		
+		try {
+			$this->controller->alterarSenha($_POST);
+			
+			$u = $this->controller->consultarUsuario($_SESSION['usuario.id']);
+			$this->assertNotNull($u);
+			$this->assertEquals('abcdef', $u->getSenha());
+			
+		} catch(Exception $e) {
+			$this->fail($e->getMessage());
+		}
+		
+		$this->controller->encerrarSessao();
+
+	}
+
+	public function testAlterarDados() {
+		
+		$this->controller->validarUsuario($_POST);
+		
+		$_POST['nome'] = 'Joao';
+		$_POST['email'] = 'joao@mail.com';
+		
+		try {
+			$this->controller->alterarDados($_POST);
+			
+			$u = $this->controller->consultarUsuario($_SESSION['usuario.id']);
+			$this->assertNotNull($u);
+			$this->assertEquals('Joao', $u->getNome());
+			$this->assertEquals('joao@mail.com', $u->getEmail());
+			
+		} catch(Exception $e) {
+			$this->fail($e->getMessage());
+		}
+		
+		$this->controller->encerrarSessao();
+
+		$sql = "DELETE FROM usuario WHERE email='joao@mail.com'";
+		$this->db->exec($sql);
 	}
 }
 

@@ -52,7 +52,8 @@ class DefaultSessionController extends SessionController{
 	 * @see SessionController::doLogout()
 	 */
 	public function doLogout() {
-		$ok = session_destroy("usuario");
+		
+		$ok = session_destroy();
 
 		if(!$ok) {
 			throw new Exception("Sessão não pode ser encerrada.");

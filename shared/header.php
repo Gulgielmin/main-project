@@ -22,7 +22,7 @@ Bem Vindo <?php echo " ".$_SESSION['usuario.nome'].""?>!
 </font>
 <div class='headerlink'>
 <ul>
-<a href="#">Meus Dados</a>
+<a href="../account/">Meus Dados</a>
 </ul>
 </div>
 

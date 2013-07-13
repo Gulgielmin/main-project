@@ -110,7 +110,8 @@ class UsuarioController{
 	 * @param unknown $content
 	 */
 	public function validarUsuario($content){
-		$usuario = $this->business->validar($content["email"], $content["senha"]);
+		$usuario = new Usuario(NULL, $content["email"], $content["senha"],NULL,Usuario::MODO_AUTENTICACAO);
+		$usuario = $this->business->validarUsuario($usuario);
 
 		$this->session_controller->doLogin($usuario);
 

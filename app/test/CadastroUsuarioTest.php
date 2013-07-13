@@ -42,10 +42,11 @@ class CadastroTest extends PHPUnit_Framework_TestCase {
 	public function testCadastroSenhaIncorreta() {
 
 		$_POST['senha'] = '';
+		$_POST['confirmacao'] = '';
 		try {
 
 			$this->controller->registrarUsuario($_POST);
-			$this->assertFalse(TRUE,"Não deveria chegar aqui.");
+			$this->fail("Não deveria chegar aqui.");
 
 		}catch (Exception $e){
 			$this->assertEquals("Senha vazia.", $e->getMessage());

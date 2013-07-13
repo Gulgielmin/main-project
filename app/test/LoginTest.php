@@ -110,6 +110,34 @@ class LoginTest extends PHPUnit_Framework_TestCase {
 			$this->assertEquals("Usuário não existe.", $e->getMessage());
 		}
 	}
+	
+	/**
+	 * Teste de login com senha vazia
+	 */
+	public function testLoginSenhaVazia() {
+		$_POST['senha'] = '';
+		$_POST['confirmacao'] = '';
+		try {
+			$this->controller->validarUsuario($_POST);
+			$this->fail("Não deveria chegar aqui.");
+		} catch (Exception $e) {
+			$this->assertEquals("Senha vazia.", $e->getMessage());
+		}
+	}
+
+
+	/**
+	 * Teste de login com email inválido
+	 */
+	public function testLoginSenhaTamanhoInvalido() {
+		$_POST['senha'] = '123';
+		try {
+			$this->controller->validarUsuario($_POST);
+			$this->fail("Não deveria chegar aqui.");
+		} catch (Exception $e) {
+			$this->assertEquals("Senha fora do formato.", $e->getMessage());
+		}
+	}
 }
 
 ?>

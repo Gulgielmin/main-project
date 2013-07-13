@@ -14,23 +14,8 @@ class Usuario{
 		$this->setIdUsuario($idUsuario);
 		$this->setNome($nome);
 		$this->setEmail($email);
-
-		if ($senha == NULL || $senha == ''){
-			throw new Exception('Senha vazia.');
-		}
-		else if (!$this->_verificarSenha($senha)){
-			throw new Exception ('Senha fora do formato.');
-		}
-
-		else if($confirmacao == NULL) {
-			$this->setSenha($senha);
-		}
-		else if($senha == $confirmacao) {
-			$this->setSenha($senha);
-		}
-		else {
-			throw new Exception("Senhas não conferem.");
-		}
+		$this->setSenha($senha,$confirmacao);
+		
 	}
 
 	public function getIdUsuario(){
@@ -60,13 +45,36 @@ class Usuario{
 			throw new Exception('Email vazio.');
 		}
 		else if (!$this->_verificarEmail($email)){
-				
+			throw new Exception("Email inválido.");
 		}else {
 			$this->email = $email;
 		}
 	}
-	public function setSenha($senha){
+	
+	private function _setSenha($senha){
+		if ($senha == NULL || $senha == ''){
+			throw new Exception('Senha vazia.');
+		}
+		else if (!$this->_verificarSenha($senha)){
+			throw new Exception ('Senha fora do formato.');
+		}
 		return	$this->senha = $senha;
+	}
+
+	public function setSenha($senha,$confirmacao=NULL) {
+		
+		if($confirmacao == NULL) {
+			$this->_setSenha($senha);
+		}
+		
+		else {
+			if($senha == $confirmacao) {
+				$this->setSenha($senha);
+			}
+			else {
+				throw new Exception("Senhas não conferem.");
+			}	
+		}
 	}
 
 	private function _verificarSenha($senha){

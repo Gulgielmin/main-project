@@ -7,9 +7,11 @@
      <table align=right width=300 height=100 cellpadding=3 cellspacing=2 	background="../shared/img/user_header.png" bgcolor="ffffff"> 
      <tr> 
 <td width="120">
+<div class='headerimg'>
 <center>
 <img src="../shared/img/user_photo_example.png" align="center" />
 </center>
+</div>
 </td>
 <td width="160">
 
@@ -17,10 +19,13 @@
 <center>  
 Bem Vindo <?php echo " ".$_SESSION['usuario.nome'].""?>! 
 </center>
+</font>
+<div class='headerlink'>
 <ul>
 <a href="#">Meus Dados</a>
 </ul>
-</font>
+</div>
+
 </td>
 </tr>  
 </table>

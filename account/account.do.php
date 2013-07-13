@@ -10,8 +10,7 @@ function process_register() {
 		$controller->validarUsuario($_POST);
 		header("location: ../account");
 	} catch(Exception $e) {
-		// TODO colocar codigo do erro
-		echo "location: register.php?error=1";
+		echo $e->getMessage();
 	}
 }
 
@@ -24,7 +23,6 @@ function process_login() {
 		header("location: ../account");
 	} catch (Exception $e) {
 		echo $e->getMessage();
-		//header("location: login.php?error=1");
 	}
 }
 

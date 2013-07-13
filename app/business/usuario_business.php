@@ -1,6 +1,6 @@
 <?php 
-require dirname(__FILE__).'/../persistence/usuario_dao.php';
-require dirname(__FILE__).'/../business/business.php';
+require_once dirname(__FILE__).'/../persistence/usuario_dao.php';
+require_once dirname(__FILE__).'/../business/business.php';
 
 class UsuarioBusiness extends Business{
 

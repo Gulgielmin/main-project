@@ -167,7 +167,6 @@ class UsuarioController{
 	 * Pedro Thiago e Louis 
 	 * 
 	 */
-	
 	public function alteraUsuario($content){
 		$nome = $content['nome'];
 		$email = $content['email'];
@@ -177,6 +176,14 @@ class UsuarioController{
 		$usuario = new Usuario($nome, $email, $senha, $confirmacao);
 		$usuario->setIdUsuario($_SESSION['usuario.id']);
 		$this->business->alterar($usuario);
+	}
+	
+	public function alterarSenhaUsuario($content) {
+		
+	}
+	
+	public function  alterarDadosUsuario($content) {
+		
 	}
 	
 }

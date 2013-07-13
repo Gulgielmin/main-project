@@ -1,7 +1,7 @@
 ﻿<?php 
-include dirname(__FILE__).'/../../app/persistence/projeto_dao.php';
-include dirname(__FILE__).'/../../app/persistence/custo_dao.php';
-include dirname(__FILE__).'/../../app/business/business.php';
+require_once dirname(__FILE__).'/../../app/persistence/projeto_dao.php';
+require_once dirname(__FILE__).'/../../app/persistence/custo_dao.php';
+require_once dirname(__FILE__).'/../../app/business/business.php';
 
 class ProjetoBusiness extends Business{
 

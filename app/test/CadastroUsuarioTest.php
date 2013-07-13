@@ -1,10 +1,10 @@
 <?php
 
-require dirname(__FILE__).'/../controller/usuario_controller.php';
-require 'SQLUtils.php';
+require_once dirname(__FILE__).'/../controller/usuario_controller.php';
+require_once 'SQLUtils.php';
 
 
-class CadastroTest extends PHPUnit_Framework_TestCase {
+class CadastroUsuarioTest extends PHPUnit_Framework_TestCase {
 
 	private $controller;
 	private $db;

@@ -46,9 +46,11 @@ function process_update_profile() {
 	$controller = new UsuarioController();
 	
 	try {
-		
+		$controller->alteraUsuario($_POST);
+		$controller->validarUsuario($_POST);
+		header("location: ../account");
 	} catch (Exception $e) {
-		
+		echo $e->getMessage();
 	}
 }
 

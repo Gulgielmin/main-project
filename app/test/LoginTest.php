@@ -1,7 +1,7 @@
 <?php
 
-require dirname(__FILE__).'/../controller/usuario_controller.php';
-require 'SQLUtils.php';
+require_once dirname(__FILE__).'/../controller/usuario_controller.php';
+require_once 'SQLUtils.php';
 
 class LoginTest extends PHPUnit_Framework_TestCase {
 	

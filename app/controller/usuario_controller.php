@@ -1,7 +1,7 @@
 <?php
 
-require dirname(__FILE__).'/../business/usuario_business.php';
-require dirname(__FILE__).'/../domain/usuario.php';
+require_once dirname(__FILE__).'/../business/usuario_business.php';
+require_once dirname(__FILE__).'/../domain/usuario.php';
 
 class UsuarioController{
 	private $business;

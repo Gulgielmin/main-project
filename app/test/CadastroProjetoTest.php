@@ -16,19 +16,24 @@ class CadastroProjetoTest extends PHPUnit_Framework_TestCase {
 		$_POST['confirmacao'] = '123456';
 
 		$this->controller = new UsuarioController(new AlternateSessionController());
+		$this->controller->registrarUsuario($_POST);
 		$this->controller->validarUsuario($_POST);
 		$this->db = new SQLUtils();
 
-		$this->controller->registrarUsuario($_POST);
+		
+		$this->projeto_controller = new ProjetoController();
 	}
 
 	/**
 	 * Apagar usuário previamente inserido 
 	 */
 	public function tearDown() {
-		$sql = "DELETE FROM usuario WHERE email='marcos@mail.com';";
+		$idUsuario = $_SESSION['usuario.id'];
+		$sql = "DELETE FROM projeto WHERE nome_projeto='Teste' AND inicio=2000-01-01";
 		$this->db->exec($sql);
-		$sql = "DELETE FROM usuario WHERE nome='Marcos';";
+		$sql = "DELETE FROM usuario_em_projeto WHERE Usuario_IdUsuario = $idUsuario";
+		$this->db->exec($sql);
+		$sql = "DELETE FROM usuario WHERE nome='Marcos' AND email = 'marcos@mail.com';";
 		$this->db->exec($sql);
 	}
 	
@@ -36,10 +41,7 @@ class CadastroProjetoTest extends PHPUnit_Framework_TestCase {
 		$_POST['nomeProjeto'] = 'Teste';
 		$_POST['dataInicio'] = '2000-01-01';
 		$_POST['dataTermino'] = '2001-01-01';
-		$_POST['periodicidade'] = 1;
-		$_POST['previsaoCusto'] = 1000;
-		$_POST['quantidadePeriodos'] = 1;
-		$_POST['dataDesconto'] = '2000-01-01';
+		$_POST['orcamento'] = 1500;
 		
 		$cadastro = $this->projeto_controller->criarProjeto($_POST, $_SESSION['usuario.id']);
 			

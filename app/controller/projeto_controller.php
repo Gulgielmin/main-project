@@ -16,14 +16,11 @@ class ProjetoController{
 		$nome = $post['nomeProjeto'];
 		$inicio = $this->converter_data($post['dataInicio']);
 		$fim = $this->converter_data($post['dataTermino']);
-		$periodicidade = $post['periodicidade'];
-		$valor = $post['previsaoCusto'];
-		$qtdPeriodos = $post['quantidadePeriodos'];
-		$data = $this->converter_data($post['dataDesconto']);
+		$orcamento = $post['orcamento'];
 
-		$projeto = new Projeto($nome, $inicio, $fim, $periodicidade, $valor, $qtdPeriodos, $data);
+		$projeto = new Projeto(null, $nome, $inicio, $fim, $orcamento, $idUsuario);
 
-		$sucesso = $this->business->salvaNovoProjeto($projeto, $idUsuario);
+		$sucesso = $this->business->salvarProjeto($projeto, $idUsuario);
 		return $sucesso;
 	}
 
@@ -35,7 +32,7 @@ class ProjetoController{
 	public function buscarProjeto($idProjeto){
 
 		$busca = $this->business->buscaProjeto($idProjeto);
-		$projeto = new Projeto($busca->idProjeto, $busca->nome_projeto, $this->converter_data($busca->inicio), $this->converter_data($busca->fim), $busca->Periodicidade_id, $busca->valor, $busca->qtdPeriodos, $this->converter_data($busca->data), $busca->idProjeto, $busca->Custo_id);
+		$projeto = new Projeto($busca->idProjeto, $busca->nome_projeto, $this->converter_data($busca->inicio), $this->converter_data($busca->fim), $busca->orcamento);
 
 		return $projeto;
 	}
@@ -53,14 +50,10 @@ class ProjetoController{
 		$nome = $post['nomeProjeto'];
 		$inicio = $this->converter_data($post['dataInicio']);
 		$fim = $this->converter_data($post['dataTermino']);
-		$idCusto = $post['idCusto'];
-		$periodicidade = $post['periodicidade'];
-		$valor = $post['previsaoCusto'];
-		$qtdPeriodos = $post['quantidadePeriodos'];
-		$data = $this->converter_data($post['dataDesconto']);
+		$orcamento = $post['orcamento'];
 		
 		try {
-			$projeto = new Projeto($nome, $inicio, $fim, $periodicidade, $valor, $qtdPeriodos, $data, $idCusto, $idProjeto);
+			$projeto = new Projeto($idProjeto, $nome, $inicio, $fim, $orcamento);
 		}
 		catch(Exception $ex){
 			echo "Erro:".$ex.getMessage();

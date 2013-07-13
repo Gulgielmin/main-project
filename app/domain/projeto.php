@@ -12,14 +12,16 @@ class Projeto{
 	private $nome;
 	private $inicio;
 	private $fim;
-	private $custo;
+	private $orcamento;
+	private $gerente;
 	
-	public function __construct($idProjeto, $nome, $inicio, $fim, $periodicidade, $valor, $qtdPeriodos, $data, $idCusto = null){
+	public function __construct($idProjeto, $nome, $inicio, $fim, $orcamento = null, $gerente = null){
 		$this->setIdProjeto($idProjeto);
 		$this->setNome($nome);
 		$this->setInicio($inicio);
 		$this->setFim($fim);
-		$this->setCusto(new Custo($idCusto,$periodicidade, $valor, $qtdPeriodos, $data));	
+		$this->setOrcamento($orcamento);
+		$this->setGerente($gerente);	
 	}
 	
 	
@@ -35,8 +37,11 @@ class Projeto{
 	public function getFim(){
 		return $this->fim;
 	}
-	public function getCusto(){
-		return $this->custo;
+	public function getOrcamento(){
+		return $this->orcamento;
+	}
+	public function getGerente(){
+		return $this->gerente;
 	}
 	public function setIdProjeto($idProjeto){
 		$this->idProjeto = $idProjeto;
@@ -50,8 +55,11 @@ class Projeto{
 	public function setFim($fim){
 		$this->fim = $fim;
 	}
-	public function setCusto($custo){
-		$this->custo = $custo;
+	public function setOrcamento($orcamento){
+		$this->orcamento = $orcamento;
+	}
+	public function setGerente($gerente){
+		$this->gerente = $gerente;
 	}
 	
 }

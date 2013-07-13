@@ -23,19 +23,19 @@ class DefaultProjetoDAO extends PDOConnectionFactory implements ProjetoDAO{
 	public function salvarProjeto($projeto){
 		$ok = null;
 		try{
-			$stmt = $this->conex->prepare("INSERT INTO savant.projeto (idProjeto, nome_projeto, inicio, fim, Custo_id) VALUES (:id, :nome, :inicio, :fim, :idcusto)");
+			$stmt = $this->conex->prepare("INSERT INTO savant.projeto (idProjeto, nome_projeto, inicio, fim, orcamento) VALUES (:id, :nome, :inicio, :fim, :orcamento)");
 
 			$stmt->bindValue('id', $projeto->getIdProjeto(), PDO::PARAM_INT);
 			$stmt->bindValue('nome', $projeto->getNome(), PDO::PARAM_STR);
 			$stmt->bindValue('inicio', $projeto->getInicio(), PDO::PARAM_STR);
 			$stmt->bindValue('fim', $projeto->getFim(), PDO::PARAM_STR);
-			$stmt->bindValue('idcusto', $idCusto, PDO::PARAM_INT);
+			$stmt->bindValue('orcamento', $projeto->getOrcamento(), PDO::PARAM_INT);
 
 			try {
 				$ok = $stmt->execute();
 				if($ok) {
 					try {
-						$this->vinculaUsuarioDao($this->conex->lastInsertId(),$idUsuario, 1); //Cargo 1 = Gerente
+						$this->vincularUsuario($this->conex->lastInsertId(),$projeto->getGerente(), 1); //Cargo 1 = Gerente
 					}
 					catch (Exception $ex){
 						echo 'ERRO: '.$ex->getMessage();
@@ -74,7 +74,7 @@ class DefaultProjetoDAO extends PDOConnectionFactory implements ProjetoDAO{
 
 	public function buscarProjeto($idProjeto){
 		$projeto = null;
-		$stmt = $this->conex->prepare("SELECT projeto.nome_projeto, projeto.inicio, projeto.fim, custo.Periodicidade_id, custo.valor, custo.qtdPeriodos, custo.data, projeto.Custo_id, projeto.idProjeto FROM projeto INNER JOIN custo ON (projeto.Custo_id = custo.idCusto) WHERE projeto.idProjeto = :id LIMIT 1");
+		$stmt = $this->conex->prepare("SELECT projeto.nome_projeto, projeto.inicio, projeto.fim, projeto.orcamento FROM projeto WHERE projeto.idProjeto = :id LIMIT 1");
 		$stmt->bindValue('id', $idProjeto, PDO::PARAM_INT);
 
 		try {

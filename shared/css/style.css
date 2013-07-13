@@ -41,3 +41,19 @@ div.footer {
 #centered {
 	margin: 0 auto;
 }
+
+div.headerlink a:link, a:visited {
+color: #ffffff;
+text-decoration: none
+}
+div.headerlink a:hover {
+background:#66cc66;
+/* borda arredondada da div para webkit*/
+-webkit-border-radius: 2px;
+ 
+/* borda arredondada da div moz*/
+-moz-border-radius: 2px;
+}
+div.headerlink a:active {
+text-decoration: none
+}

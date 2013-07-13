@@ -17,10 +17,13 @@
 <center>  
 Bem Vindo <?php echo " ".$_SESSION['usuario.nome'].""?>! 
 </center>
+</font>
+<div class='headerlink'>
 <ul>
 <a href="#">Meus Dados</a>
 </ul>
-</font>
+</div>
+
 </td>
 </tr>  
 </table>

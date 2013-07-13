@@ -23,9 +23,18 @@ class UsuarioBusiness extends Business{
 	 * @param unknown $user
 	 * @return unknown
 	 */
-	public function validarUsuario($user){
-		$ok = $this->dao->validarUsuario($user->getEmail(), $user->getSenha());
+	public function validar($email, $senha){
+		$ok = $this->dao->validarUsuario($email,$senha);
 		return $ok;
+	}
+	
+	/**
+	 * Valida um usuário e cria uma sessão
+	 * @param unknown $user
+	 * @return unknown
+	 */
+	public function validarUsuario($user){
+		return $this->validar($user->getEmail(), $user->getSenha());
 	}
 	
 

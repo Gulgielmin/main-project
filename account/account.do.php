@@ -67,6 +67,7 @@ function process_update_password() {
 
 	try {
 		$controller->alterarSenha($_POST);
+		$_POST['email'] = $_SESSION['usuario.email'];
 		$controller->validarUsuario($_POST);
 		header("location: ../account");
 	} catch (Exception $e) {

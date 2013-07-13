@@ -57,3 +57,10 @@ background:#66cc66;
 div.headerlink a:active {
 text-decoration: none
 }
+
+div.headerimg  img{
+/* borda arredondada da div para webkit*/
+-webkit-border-radius: 10px;
+/* borda arredondada da div moz*/
+-moz-border-radius: 10px;
+}

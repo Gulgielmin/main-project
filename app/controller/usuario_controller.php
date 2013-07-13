@@ -4,6 +4,62 @@ require_once dirname(__FILE__).'/../business/usuario_business.php';
 require_once dirname(__FILE__).'/../domain/usuario.php';
 
 /**
+ * Classe abstrata usada para criar sessão. Também é útil para mockar
+ * objetos de sessão durante os testes.
+ * @author Marcos
+ *
+ */
+abstract class SessionController {
+
+	/**
+	 * Classes filhas devem, neste método, criar a sessão apropriadamente.
+	 */
+	public abstract function doLogin($user);
+
+	/**
+	 * Nesse método as implementações concretas devem encerrar a sessão atual.
+	*/
+	public abstract function doLogout();
+}
+
+/**
+ * Classe padrão para criar sessão. Ela cria uma sessão usando
+ * a session_start() do PHP
+ *
+ * @author Marcos
+ */
+class DefaultSessionController extends SessionController{
+
+	/**
+	 * (non-PHPdoc)
+	 * @see SessionController::doLogin()
+	 */
+	public function doLogin($usuario) {
+		if($usuario) {
+			session_start("usuario");
+			$_SESSION['usuario.id'] = $usuario->idUsuario;
+			$_SESSION['usuario.nome'] = $usuario->nome;
+			$_SESSION['usuario.email'] = $usuario->email;
+			$_SESSION['usuario.senha'] = $usuario->senha;
+		}
+		else {
+			throw new Exception("User does not exists.");
+		}
+	}
+
+	/**
+	 * (non-PHPdoc)
+	 * @see SessionController::doLogout()
+	 */
+	public function doLogout() {
+		$ok = session_destroy("usuario");
+
+		if(!$ok) {
+			throw new Exception("Sessão não pode ser encerrada.");
+		}
+	}
+}
+/**
  * Essa classe é a ponte entre a interação do usuário e a lógica da aplicação
  *
  * @author Marcos
@@ -54,8 +110,7 @@ class UsuarioController{
 	 * @param unknown $content
 	 */
 	public function validarUsuario($content){
-		$usuario = new Usuario(NULL, $content['email'], $content['senha'], NULL,TRUE);
-		$usuario = $this->business->validarUsuario($usuario);
+		$usuario = $this->business->validar($content["email"], $content["senha"]);
 
 		$this->session_controller->doLogin($usuario);
 
@@ -96,7 +151,7 @@ class UsuarioController{
 	public function consultaUsuario($idUsuario){
 		$busca = $this->business->consultaUsuario($idUsuario);
 		if($busca){
-			$usuario = new Usuario($busca->nome, $busca->email, $busca->senha);
+			$usuario = new Usuario($busca->nome, $busca->email, $busca->senha, NULL,Usuario::MODO_NORMAL);
 			return $usuario;
 		}
 		else{
@@ -111,7 +166,6 @@ class UsuarioController{
 	 * Pedro Thiago e Louis 
 	 * 
 	 */
-	
 	public function alteraUsuario($content){
 		$nome = $content['nome'];
 		$email = $content['email'];
@@ -121,6 +175,33 @@ class UsuarioController{
 		$usuario = new Usuario($nome, $email, $senha, $confirmacao);
 		$usuario->setIdUsuario($_SESSION['usuario.id']);
 		$this->business->alterar($usuario);
+	}
+	
+	/**
+	 *  Altera a senha de um usuário
+	 * @param array $content
+	 */
+	public function alterarSenha($content) {
+
+		$senha = $content['senha'];
+		$confirmacao = $content['confirmacao'];
+		
+		$usuario = new Usuario( NULL, NULL, $senha, $confirmacao,Usuario::MODO_ATUALIZAR_SENHA);
+		$usuario->setIdUsuario($_SESSION['usuario.id']);
+		$this->business->alterarSenha($usuario);
+	}
+	
+	/**
+	 * Altera os dados de um usuário
+	 * @param unknown $content
+	 */
+	public function  alterarDados($content) {
+		$nome = $content['nome'];
+		$email = $content['email'];
+
+		$usuario = new Usuario($nome, $email, NULL, NULL,Usuario::MODO_ATUALIZAR_DADOS);
+		$usuario->setIdUsuario($_SESSION['usuario.id']);
+		$this->business->alterarDados($usuario);
 	}
 	
 }

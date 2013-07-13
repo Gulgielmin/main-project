@@ -15,6 +15,11 @@ abstract class SessionController {
 	 * Classes filhas devem, neste método, criar a sessão apropriadamente.
 	 */
 	public abstract function doLogin($user);
+	
+	/**
+	 * Nesse método as implementações concretas devem encerrar a sessão atual.
+	 */
+	public abstract function doLogout();
 }
 
 /**
@@ -29,7 +34,7 @@ class DefaultSessionController extends SessionController{
 	 * (non-PHPdoc)
 	 * @see SessionController::doLogin()
 	 */
-	public function doLogin($user) {
+	public function doLogin($usuario) {
 		if($usuario) {
 			session_start("usuario");
 			$_SESSION['usuario.id'] = $usuario->idUsuario;
@@ -38,6 +43,18 @@ class DefaultSessionController extends SessionController{
 		}
 		else {
 			throw new Exception("User does not exists.");
+		}
+	}
+	
+	/**
+	 * (non-PHPdoc)
+	 * @see SessionController::doLogout()
+	 */
+	public function doLogout() {
+		$ok = session_destroy("usuario");
+		
+		if(!$ok) {
+			throw new Exception("Sessão não pode ser encerrada.");
 		}
 	}
 }
@@ -98,6 +115,14 @@ class UsuarioController{
 
 		$this->session_controller->doLogin($usuario);
 
+	}
+
+	/**
+	 * Valida um usuário e cria sua sessão
+	 * @param unknown $content
+	 */
+	public function encerrarSessao(){
+		$this->session_controller->doLogout();
 	}
 
 

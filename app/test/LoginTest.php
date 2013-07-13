@@ -23,6 +23,10 @@ class AlternateSessionController extends SessionController{
 			throw new Exception("User does not exists.");
 		}
 	}
+	
+	public function doLogout() {
+		unset($_SESSION);
+	}
 
 }
 
@@ -136,6 +140,20 @@ class LoginTest extends PHPUnit_Framework_TestCase {
 			$this->fail("Não deveria chegar aqui.");
 		} catch (Exception $e) {
 			$this->assertEquals("Senha fora do formato.", $e->getMessage());
+		}
+	}
+	
+	/**
+	 * Teste para encerrar sessão
+	 */
+	public function testEncerrarSessao() {
+		$this->controller->validarUsuario($_POST);
+		
+		try {
+			$this->controller->encerrarSessao();
+			$this->assertTrue(TRUE);
+		} catch (Exception $e) {
+			$this->fail("Teste falhou.");
 		}
 	}
 }

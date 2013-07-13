@@ -31,7 +31,7 @@ redirect_if_no_user('../account/login.php');
 			</div>
 
 			<div class="profile_update">
-				<form action="account.do.php?action=update_profile">
+				<form action="account.do.php?action=update_profile" method="post">
 					<div>
 						<div class="labels">
 							<label>Nome:</label> <label>Email:</label>
@@ -46,7 +46,7 @@ redirect_if_no_user('../account/login.php');
 			</div>
 
 			<div class="profile_password">
-				<form action="account.do.php?action=update_password">
+				<form action="account.do.php?action=update_password" method="post">
 					<div>
 						<div class="labels">
 							<label>Senha:</label> <label>Confirmação:</label>

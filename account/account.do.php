@@ -1,5 +1,6 @@
 <?php
-require '../app/controller/usuario_controller.php';
+require_once '../app/controller/usuario_controller.php';
+require '../app/utils/session_utils.php';
 
 /**
  * Essa função é disparado por um formulário
@@ -46,7 +47,26 @@ function process_update_profile() {
 	$controller = new UsuarioController();
 	
 	try {
-		$controller->alteraUsuario($_POST);
+		$controller->alterarDados($_POST);
+		$_POST['senha'] = $_SESSION['usuario.senha'];
+		$controller->validarUsuario($_POST);
+		header("location: ../account");
+	} catch (Exception $e) {
+		echo $e->getMessage();
+	}
+}
+
+
+/**
+ * Essa função é disparada quando o usuário,
+ * a parti de seu perfil, escolhe a opção de
+ * alterar sua senha.
+ */
+function process_update_password() {
+	$controller = new UsuarioController();
+
+	try {
+		$controller->alterarSenha($_POST);
 		$controller->validarUsuario($_POST);
 		header("location: ../account");
 	} catch (Exception $e) {
@@ -58,9 +78,7 @@ function process_update_profile() {
  * Aqui verificamos a validade da requisição e redirecionamos para
  * uma das funções especificadas anteriormente.
  */
-if($_GET && $_GET['action'] && $_POST) {
-
-	$controller = new UsuarioController();
+if(isset($_GET) && isset($_POST) && $_GET['action']) {
 	
 	$action =$_GET['action']; 
 
@@ -68,8 +86,16 @@ if($_GET && $_GET['action'] && $_POST) {
 		process_register();
 	}
 
-	if($action == 'login') {
+	else if($action == 'login') {
 		process_login();
+	}
+
+	else if($action == 'update_password') {
+		process_update_password();
+	}
+
+	else if($action == 'update_profile') {
+		process_update_profile();
 	}
 }
 

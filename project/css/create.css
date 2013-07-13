@@ -1,46 +1,36 @@
-@IMPORT url('navbar.css');
-body {
-	font-family: Helvetica, Verdana, Arial;
-	color: #454837;
-	font-size: 12pt;	
-}
+@CHARSET "ISO-8859-1";
 
-div {
-	border: none;
-}
-
-div.root {
-	width: 900px;
-	margin: 0 auto;
-}
-
-div.header {
-	height: 100px;
-}
-
-div.header #left {
-	float: left;
-}
-
-div.header #right {
-	float: right;
-}
-
-div.content {
-	min-height: 500px;
-}
-
-div.footer {
-	font-size: 9pt;
-	color: #B3B3B3;
-	text-align: center;
-	padding-top: 10px;
+form {
+	width: 100%;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	padding-top: 20px;
 	border-top: 1px dashed #e0e3e1;
 }
 
-#centered {
-	margin: 0 auto;
+label {
+	width: 100px;
+	float: left;
+	text-align: right;
+	line-height: 30px;
+	font-family: Helvetica, Verdana, Arial;
+	font-weight: bold;
+	font-size: 12pt;
+	color: #747474;
 }
+input {
+	width: 200px;
+	height: 30px;
+	float: left;
+	margin: 3px;
+	color: #666666;
+	font-size: 13pt;
+	border: 1px solid #cccccc;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	border-radius: 3px;
+}
+
 input.button {
 	font-weight: bold;
 	line-height: 1;
@@ -68,4 +58,19 @@ input.button {
 	-moz-box-shadow: inset 0 1px 0 0 #aec3e5;
 	-webkit-box-shadow: inset 0 1px 0 0 #aec3e5;
 	box-shadow: inset 0 1px 0 0 #aec3e5;
+}
+
+div.labels{ 
+	float: left;
+	width: 100px;
+}
+div.inputs {
+	flot: right;
+	width: 400px;
+}
+div.create label,input {
+	display: block;
+	height: 30px;
+	margin: 3px;
+	vertical-align: middle;
 }

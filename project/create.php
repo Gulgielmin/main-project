@@ -23,14 +23,13 @@
 		<?php require '../shared/navigation_bar.php';?>
 
 		<div class="content">
-        
-
-			<form method="post" action="handlerProjeto.php?action=2"
+		
+        	<form method="post" action="project.do.php?action=newProject"
 				id="formCadastroProjeto">
 				<div class="labels">
 					<label for="nomePojeto">Nome:</label>
 					<label for="dataInicio">In&iacute;cio:</label>
-					<label for="dataTermino">Fim:</label>
+					<label for="dataTermino">Fim:</label><br/>
 					<label for="dadosCusto">DADOS DE CUSTOS</label><br />
 					<label for="previsaoCusto">Or&ccedil;amento:</label>
 					<label for="periodiciadade"></label>
@@ -42,10 +41,10 @@
 				
 				<div class="inputs">
 				
-					<input type="text" name="nomeProjeto" /> 
-					<input type="text" name="dataInicio" id="from" /> 
-					<input type="text" name="dataTermino" id="to" />  
-					<input type="text" name="previsaoCusto" /> 
+					<input type="text" name="nomeProjeto" /> <br/>
+					<input type="text" name="dataInicio" id="from" /> <br/>
+					<input type="text" name="dataTermino" id="to" />  <br/>
+					<input type="text" name="previsaoCusto" /> <br/>
 					<select name="periodicidade">
 						<option value="1">Única</option>
 						<option value="2">Diária</option>
@@ -54,24 +53,17 @@
 						<option value="5">Mensal</option>
 						<option value="6">Semestral</option>
 						<option value="7">Anual</option>
-					</select> 
-					<input type="text" name="quantidadePeriodos" value="" /> 
-					<input type="text" name="dataDesconto" class="datepicker" />
-					<input type="submit" value="Enviar" /> 
-					<input type="button" class="button" value="Cancelar" id="botaoCancelar" />
+					</select> <br/>
+					<input type="text" name="quantidadePeriodos" value="" /> <br/>
+					<input type="text" name="dataDesconto" class="datepicker" /><br/>
+					<input type="submit" value="Enviar" /> <br/>
+					<input type="button" class="button" value="Cancelar" id="botaoCancelar" /><br/>
 				
 				</div>
 				
 				</form>
 
-			<div id="sidebar">
-				<div>
-					<h2 class="title">Opções</h2>
-					<ul id="options-list">
-						<li><a href="index.php">Ir para Meus Projetos</a></li>
-					</ul>
-				</div>
-			</div>
+			
 		</div>
 		<?php require '../shared/footer.php';?>
 	</div>

@@ -16,7 +16,7 @@ if($_POST) { //Se houver requisição...
 			catch (Exception $ex) {
 				echo "ERRO: ".$ex->getMessage();
 			}
-	else if($acao=='new')
+	else if($acao=='newProject')
 			try {
 				$retorno = cria($_POST, $_SESSION['idUsuario']);
 			}

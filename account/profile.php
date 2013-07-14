@@ -45,7 +45,7 @@ redirect_if_no_user('../account/login.php');
 				</form>
 			</div>
 
-			<div class="profile_password">
+			<div class="profile_password box">
 				<form action="account.do.php?action=update_password" method="post">
 					<div>
 						<div class="labels">

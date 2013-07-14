@@ -22,11 +22,11 @@
 			
 			<div class="login">
 				<h1>Retornando a esta página?</h1>
-				Acesse aqui, usando seu nome de usuário e a sua senha.
+				Acesse aqui, usando seu e-mail e a sua senha.
 				<form action="account.do.php?action=login" method="post">
 
-					<label for="email">Email: </label> <input type="text" name="email" id="email" value="" />
-					<label for="senha">Senha:</label> <input type="password" name="senha" id="senha" value="" />
+					<label for="email">Email: </label> <input type="text" name="email" id="email" value="" style="height:25px;" /><br /><br />
+					<label for="senha">Senha: </label> <input type="password" name="senha" id="senha" value="" style="height:25px;" />
 					
 					<input class="button" type="submit" value="Entrar">
 

@@ -18,15 +18,12 @@ div.myprojectfont {
 }
 
 div.myprojectcontent {
-	min-height: 120px;
-	background-color:#339933;
-	 
-/* borda arredondada da div para webkit*/
--webkit-border-radius: 10px;
- 
-/* borda arredondada da div moz*/
--moz-border-radius: 10px;
-
+	border-radius:10px;
+	font-size: 10pt;
+	float:left;
+	margin-left:20px;
+	width:635px;
+	min-height:130px;
 }
 
 div.footer {

@@ -48,31 +48,33 @@ catch(Exception $e) {
 		<?php require '../shared/navigation_bar.php';?>
 
 		<div class="content">
-
-			<div id="content-sidebar">
-				<div class="post">
-
-					<div class="myprojectcontent">
-                    <center>
-                    		<div class="myprojectfont">
-								<h2 class="title">Meus Projetos</h2>
-						</div>
-                     </center>
-						<ul>
-							<?php foreach ($meusProjetos as $projeto=>$nome){?>
-							<li class="first"><a
-								href="visualizarProjeto.php?id=<?php echo $nome['idProjeto'];?>"><?php echo $nome['nome_projeto'];?>
-							</a></li>
-							<?php }?>
-						</ul>
-                        <center>
-                        <a href="create.php">Cadastrar Novo Projeto</a>
-                        </center>
+		
+			<div id="sidebar" class="box">
+				<div>
+					<div id="title-sidebar" class="destak">
+						Opções
 					</div>
+					<ul id="options-list">
+						<li><a href="create.php">Cadastrar Projeto</a></li>
+					</ul>
 				</div>
 			</div>
 
-
+			<div class="myprojectcontent box">
+				<br />
+               	<div class="destak">
+					Meus Projetos
+				</div>
+				<ul>
+				<?php if(!$meusProjetos) echo "Nenhum Projeto!";
+					   else
+					   	foreach ($meusProjetos as $projeto=>$nome){?>
+					<li class="first">
+						<a href="visualizarProjeto.php?id=<?php echo $nome['idProjeto'];?>"><?php echo $nome['nome_projeto'];?></a>
+					</li>
+				<?php }?>
+				</ul>
+			</div>
 
 		</div>
 		<?php require '../shared/footer.php';?>

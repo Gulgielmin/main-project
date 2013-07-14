@@ -16,14 +16,10 @@
 <td width="160">
 
 <font size=3 face="arial,verdana" color="#ffffff">
-<center>  
-Bem Vindo <?php echo " ".$_SESSION['usuario.nome'].""?>! 
-</center>
+Bem-vindo&nbsp;<?php echo $_SESSION['usuario.nome'].""?>! <br /><br />
 </font>
 <div class='headerlink'>
-<ul>
-<a href="../account/">Meus Dados</a>
-</ul>
+	<a class="hover-gradient" style="padding:5px;" href="../account/profile.php">Meus dados</a>
 </div>
 
 </td>

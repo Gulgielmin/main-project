@@ -9,7 +9,7 @@ h2 .title {
 	font-size:10pt;
 }
 
-input[type=text] { 
+input[type=text], input[type=password] { 
 	height:20px;
 }
 
@@ -62,12 +62,10 @@ color: #ffffff;
 text-decoration: none
 }
 div.headerlink a:hover {
-background:#66cc66;
-/* borda arredondada da div para webkit*/
--webkit-border-radius: 2px;
- 
-/* borda arredondada da div moz*/
--moz-border-radius: 2px;
+	background: #55d400;
+	background: -moz-linear-gradient(top, #55d400 0%, #009900 100%);
+	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#55d400),to(#009900));
+	border-radius:3px;
 }
 div.headerlink a:active {
 text-decoration: none
@@ -102,9 +100,10 @@ div #sidebar a {
 }
 
 .destak {
+	padding-top:15px;
 	font-weight: bold;
 	font-size: 11pt;
-	height: 35px;
+	height: 30px;
 	min-width: 150px;
 	color: #fff;
 	text-align: center;

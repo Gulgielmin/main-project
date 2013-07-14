@@ -30,9 +30,9 @@ class CadastroProjetoTest extends PHPUnit_Framework_TestCase {
 	 */
 	public function tearDown() {
 		$idUsuario = $_SESSION['usuario.id'];
-		$sql = "DELETE FROM projeto WHERE nome_projeto='Teste' AND inicio=2000-01-01";
-		$this->db->exec($sql);
 		$sql = "DELETE FROM usuario_em_projeto WHERE Usuario_IdUsuario = $idUsuario";
+		$this->db->exec($sql);
+		$sql = "DELETE FROM projeto WHERE inicio='2000-01-01'";
 		$this->db->exec($sql);
 		$sql = "DELETE FROM usuario WHERE nome='Marcos' AND email = 'marcos@mail.com';";
 		$this->db->exec($sql);
@@ -40,8 +40,8 @@ class CadastroProjetoTest extends PHPUnit_Framework_TestCase {
 	
 	public function testCadastroProjeto() {
 		$_POST['nomeProjeto'] = 'Teste';
-		$_POST['dataInicio'] = '2000-01-01';
-		$_POST['dataTermino'] = '2001-01-01';
+		$_POST['dataInicio'] = '01/01/2000';
+		$_POST['dataTermino'] = '01/01/2001';
 		$_POST['orcamento'] = 1500;
 		
 		$this->controller_projeto = new ProjetoController();

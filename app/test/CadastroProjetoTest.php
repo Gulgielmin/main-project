@@ -4,8 +4,8 @@ require_once 'AlternateSessionController.php';
 require_once 'SQLUtils.php';
 
 class CadastroProjetoTest extends PHPUnit_Framework_TestCase {
-		
-/**
+
+	/**
 	 * Inserir um usuário e colocar o mock do controlador de sessão
 	 */
 	public function setUp() {
@@ -17,7 +17,7 @@ class CadastroProjetoTest extends PHPUnit_Framework_TestCase {
 
 		$this->controller = new UsuarioController(new AlternateSessionController());
 
-		
+
 		$this->db = new SQLUtils();
 
 		$this->controller->registrarUsuario($_POST);
@@ -37,18 +37,122 @@ class CadastroProjetoTest extends PHPUnit_Framework_TestCase {
 		$sql = "DELETE FROM usuario WHERE nome='Marcos' AND email = 'marcos@mail.com';";
 		$this->db->exec($sql);
 	}
-	
+
 	public function testCadastroProjeto() {
 		$_POST['nomeProjeto'] = 'Teste';
 		$_POST['dataInicio'] = '2000-01-01';
 		$_POST['dataTermino'] = '2001-01-01';
 		$_POST['orcamento'] = 1500;
-		
+
 		$this->controller_projeto = new ProjetoController();
-		
+
 		$cadastro = $this->controller_projeto->criarProjeto($_POST, $_SESSION['usuario.id']);
 			
-		$this->assertNotNull($cadastro);
+		$this->assertNotNull(TRUE,$cadastro);
+	}
+
+	public function testCadastroProjetoSemNome() {
+		$_POST['nomeProjeto'] = '';
+		$_POST['dataInicio'] = '2000-01-01';
+		$_POST['dataTermino'] = '2001-01-01';
+		$_POST['orcamento'] = 1500;
+
+		try{
+			$this->controller_projeto = new ProjetoController();
+
+			$cadastro = $this->controller_projeto->criarProjeto($_POST, $_SESSION['usuario.id']);
+		}
+		catch (Exception $e){
+			$this->assertEquals('Nome vazio.',$e->getMessage());
+		}
+
+		$_POST['nomeProjeto'] = NULL;
+		try{
+			$this->controller_projeto = new ProjetoController();
+
+			$cadastro = $this->controller_projeto->criarProjeto($_POST, $_SESSION['usuario.id']);
+		}
+		catch (Exception $e){
+			$this->assertEquals('Nome vazio.',$e->getMessage());
+		}
+	}
+
+	public function testCadastroProjetoSemDatadeInicio() {
+		$_POST['nomeProjeto'] = 'teste';
+		$_POST['dataInicio'] = '';
+		$_POST['dataTermino'] = '2001-01-01';
+		$_POST['orcamento'] = 1500;
+
+		try{
+			$this->controller_projeto = new ProjetoController();
+
+			$cadastro = $this->controller_projeto->criarProjeto($_POST, $_SESSION['usuario.id']);
+		}
+		catch (Exception $e){
+			$this->assertEquals('Data de inicio vazia.',$e->getMessage());
+		}
+
+		$_POST['dataInicio'] = NULL;
+		try{
+			$this->controller_projeto = new ProjetoController();
+
+			$cadastro = $this->controller_projeto->criarProjeto($_POST, $_SESSION['usuario.id']);
+		}
+		catch (Exception $e){
+			$this->assertEquals('Data de inicio vazia.',$e->getMessage());
+		}
+	}
+	
+	public function testCadastroProjetoSemDatadeTermino() {
+		$_POST['nomeProjeto'] = 'teste';
+		$_POST['dataInicio'] = '2000-01-01';
+		$_POST['dataTermino'] = '';
+		$_POST['orcamento'] = 1500;
+	
+		try{
+			$this->controller_projeto = new ProjetoController();
+	
+			$cadastro = $this->controller_projeto->criarProjeto($_POST, $_SESSION['usuario.id']);
+		}
+		catch (Exception $e){
+			$this->assertEquals('Data de termino vazia.',$e->getMessage());
+		}
+	
+		$_POST['dataTermino'] = NULL;
+		try{
+			$this->controller_projeto = new ProjetoController();
+	
+			$cadastro = $this->controller_projeto->criarProjeto($_POST, $_SESSION['usuario.id']);
+		}
+		catch (Exception $e){
+			$this->assertEquals('Data de termino vazia.',$e->getMessage());
+		}
+	}
+	
+	public function testCadastroProjetoSemOrcamento() {
+		$_POST['nomeProjeto'] = 'teste';
+		$_POST['dataInicio'] = '2000-01-01';
+		$_POST['dataTermino'] = '2001-01-01';
+		$_POST['orcamento'] = '';
+	
+		try{
+			$this->controller_projeto = new ProjetoController();
+	
+			$cadastro = $this->controller_projeto->criarProjeto($_POST, $_SESSION['usuario.id']);
+		}
+		catch (Exception $e){
+			$this->assertEquals('Orçamento vazio.',$e->getMessage());
+		}
+	
+		$_POST['orcamento'] = NULL;
+		try{
+			$this->controller_projeto = new ProjetoController();
+	
+			$cadastro = $this->controller_projeto->criarProjeto($_POST, $_SESSION['usuario.id']);
+		}
+		catch (Exception $e){
+			$this->assertEquals('Orçamento vazio.',$e->getMessage());
+		}
 	}
 }
 ?>

@@ -14,17 +14,17 @@ class Projeto{
 	private $fim;
 	private $orcamento;
 	private $gerente;
-	
+
 	public function __construct($idProjeto, $nome, $inicio, $fim, $orcamento = null, $gerente = null){
 		$this->setIdProjeto($idProjeto);
 		$this->setNome($nome);
 		$this->setInicio($inicio);
 		$this->setFim($fim);
 		$this->setOrcamento($orcamento);
-		$this->setGerente($gerente);	
+		$this->setGerente($gerente);
 	}
-	
-	
+
+
 	public function getIdProjeto(){
 		return $this->idProjeto;
 	}
@@ -47,21 +47,43 @@ class Projeto{
 		$this->idProjeto = $idProjeto;
 	}
 	public function setNome($nome){
-		$this->nome = $nome;
+		if ($nome == NULL || $nome == ''){
+			throw new Exception ('Nome vazio.');
+		}
+		else{
+			$this->nome = $nome;
+		}
 	}
 	public function setInicio($inicio){
-		$this->inicio = $inicio;
+		if ($inicio == NULL || $inicio == ''){
+			throw new Exception ('Data de inicio vazia.');
+		}
+		else{
+			$this->inicio = $inicio;
+		}
+
 	}
 	public function setFim($fim){
-		$this->fim = $fim;
+		if ($fim == NULL || $fim == ''){
+			throw new Exception ('Data de termino vazia.');
+		}
+		else{
+			$this->fim = $fim;
+		}
 	}
 	public function setOrcamento($orcamento){
-		$this->orcamento = $orcamento;
+		if ($orcamento == '' || $orcamento == NULL){
+			throw new Exception ('Orçamento vazio.');
+		}
+		else {
+			$this->orcamento = $orcamento;
+		}
 	}
+
 	public function setGerente($gerente){
 		$this->gerente = $gerente;
 	}
-	
+
 }
 
 ?>

@@ -25,7 +25,7 @@ class CadastroProjetoTest extends PHPUnit_Framework_TestCase {
 	}
 
 	/**
-	 * Apagar usuário previamente inserido 
+	 * Apagar projeto previamente inserido . Observar as relações no banco.
 	 */
 	public function tearDown() {
 		$idUsuario = $_SESSION['usuario.id'];

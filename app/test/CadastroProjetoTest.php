@@ -44,9 +44,11 @@ class CadastroProjetoTest extends PHPUnit_Framework_TestCase {
 		$_POST['dataTermino'] = '2001-01-01';
 		$_POST['orcamento'] = 1500;
 		
-		//$cadastro = $this->controller->criarProjeto($_POST, $_SESSION['usuario.id']);
+		$this->controller_projeto = new ProjetoController();
+		
+		$cadastro = $this->controller_projeto->criarProjeto($_POST, $_SESSION['usuario.id']);
 			
-		//$this->assertNotNull($cadastro);
+		$this->assertNotNull($cadastro);
 	}
 }
 ?>

@@ -2,8 +2,6 @@
 
 require '../app/controller/projeto_controller.php';
 
-$_SESSION['idUsuario'] = 1;
-
 //---Para tratar requisições de formulários
 if($_POST) { //Se houver requisição...
 	$acao = $_GET['action'];
@@ -67,7 +65,7 @@ function buscaProjeto($IdProjeto){
 
 	$controller = new ProjetoController();
 
-	return $controller->buscaProjeto($IdProjeto);
+	return $controller->buscarProjeto($IdProjeto);
 }
 
 function exclui($IdProjeto){

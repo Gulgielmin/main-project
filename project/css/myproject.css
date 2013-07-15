@@ -11,10 +11,8 @@ div.header #right {
 
 div.myprojectfont {
 	font-family: Helvetica, Verdana, Arial;
-	color: #ffffff;
 	margin-center:auto;
-	font-size: 12pt;
-		
+	font-size: 12pt;		
 }
 
 div.myprojectcontent {
@@ -39,17 +37,8 @@ div.footer {
 }
 
 div.myprojectcontent a:link, a:visited {
-color: #ffffff;
-text-decoration: none
+color: #333;
 }
 div.myprojectcontent a:hover {
-background:#66cc66;
-/* borda arredondada da div para webkit*/
--webkit-border-radius: 2px;
- 
-/* borda arredondada da div moz*/
--moz-border-radius: 2px;
-}
-div.myprojectcontent a:active {
-text-decoration: none
+color:red;
 }

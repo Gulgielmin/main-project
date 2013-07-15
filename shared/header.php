@@ -19,7 +19,7 @@
 Bem-vindo&nbsp;<?php echo $_SESSION['usuario.nome'].""?>! <br /><br />
 </font>
 <div class='headerlink'>
-	<a class="hover-gradient" style="padding:5px;" href="../account/profile.php">Meus dados</a>
+	<a class="hover-gradient" style="padding:5px;color:#fff;" href="../account/profile.php">Meus dados</a>
 </div>
 
 </td>

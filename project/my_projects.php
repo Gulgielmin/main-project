@@ -11,7 +11,7 @@ if(!session_started()) {
 }
 
 $usuario = NULL;
-$meusProjetos = NULL;
+$meusProjetos = listaProjeto($_SESSION['usuario.id']);
 
 try {
 	//$usuario = $_SESSION['current_user'];
@@ -69,8 +69,8 @@ catch(Exception $e) {
 				<?php if(!$meusProjetos) echo "Nenhum Projeto!";
 					   else
 					   	foreach ($meusProjetos as $projeto=>$nome){?>
-					<li class="first">
-						<a href="visualizarProjeto.php?id=<?php echo $nome['idProjeto'];?>"><?php echo $nome['nome_projeto'];?></a>
+					<li style="height:30px;">
+						<a href="project.php?id=<?php echo $nome['idProjeto'];?>"><?php echo $nome['nome_projeto'];?></a>
 					</li>
 				<?php }?>
 				</ul>

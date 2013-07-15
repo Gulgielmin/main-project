@@ -2,7 +2,14 @@ $(function($){
    $("#data, .data").mask("99/99/9999");
    $("#datepicker, .datepicker, #from, #to").mask("99/99/9999");
    $("#telefone").mask("(99)9999-9999?");
-   $("#dinheiro").mask("???.???.???.??9,99");
+});
+
+$(function($){
+	$('#orcamento').priceFormat({
+		prefix: '',
+	    centsSeparator: ',',
+	    thousandsSeparator: '.'
+	});
 });
 
 $(document).ready(function() {
@@ -31,19 +38,9 @@ $(function() {
   });
   
 $(function() {
-    $( ".botaoConfiguracao" ).button({
-      icons: {
-        primary: "ui-icon-gear",
-        secondary: "ui-icon-triangle-1-s"
-      },
-      text: false
-    });
-});
-
-$(function() {
 	    $( "#datepicker, .datepicker" ).datepicker({
 	      showOn: "button",
-	      buttonImage: "../config/images/calendar-icon.png",
+	      buttonImage: "../shared/css/images/calendar-icon.png",
 	      buttonImageOnly: true
 	    });
 	  });
@@ -75,7 +72,7 @@ $(function() {
     $( "#from" ).datepicker({
       defaultDate: "+1w",
 	      showOn: "button",
-	      buttonImage: "../config/images/calendar-icon.png",
+	      buttonImage: "../shared/css/images/calendar-icon.png",
 	      buttonImageOnly: true,
       onClose: function( selectedDate ) {
         $( "#to" ).datepicker( "option", "minDate", selectedDate );
@@ -84,7 +81,7 @@ $(function() {
     $( "#to" ).datepicker({
       defaultDate: "+1w",
 	      showOn: "button",
-	      buttonImage: "../config/images/calendar-icon.png",
+	      buttonImage: "../shared/css/images/calendar-icon.png",
 	      buttonImageOnly: true,
       onClose: function( selectedDate ) {
         $( "#from" ).datepicker( "option", "maxDate", selectedDate );

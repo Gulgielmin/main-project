@@ -1,5 +1,5 @@
 <?php
-//require_once dirname(__FILE__).'/../controller/usuario_controller.php';
+require_once dirname(__FILE__).'/../controller/usuario_controller.php';
 
 /**
  *

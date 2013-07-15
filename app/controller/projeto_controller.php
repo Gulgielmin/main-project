@@ -59,7 +59,7 @@ class ProjetoController{
 			echo "Erro:".$ex.getMessage();
 		}
 
-		$sucesso = $this->business->altera($projeto);
+		$sucesso = $this->business->alterarProjeto($projeto);
 		
 		return $sucesso;	
 	}

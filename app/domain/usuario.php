@@ -67,7 +67,7 @@ class Usuario{
 			}
 
 			else if (!$this->_verificarEmail($email)){
-				throw new Exception("Email inválido.");
+				throw new Exception('Email inválido.');
 					
 			} else {
 				$this->email = $email;

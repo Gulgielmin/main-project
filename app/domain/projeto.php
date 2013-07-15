@@ -66,8 +66,10 @@ class Projeto{
 	public function setFim($fim, $inicio = NULL){
 		if ($fim == NULL || $fim == ''){
 			throw new Exception ('Data de termino vazia.');
-		}else if ($inicio == $fim){
+		}else if (strtotime($inicio) == strtotime($fim)){
 			throw new Exception ('Data de termino igual à de inicio.');
+		}else if (strtotime($inicio) > strtotime($fim)){
+			throw new Exception ('Data de inicio maior que a de termino.');
 		}
 		else{
 			$this->fim = $fim;

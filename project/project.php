@@ -2,7 +2,6 @@
 
 <?php
 
-require '../app/utils/session_utils.php';
 require 'project.do.php';
 
 if(!isset($_GET['id'])) {
@@ -54,7 +53,8 @@ try {
 								Dados</a></li>
 						<li><a href="#">Excluir Projeto</a></li>
 						<li><a href="index.php">Meus Projetos</a></li>
-					</ul>
+					</ul>					
+					<input type="button" style="margin-left:30px;" class="button" value="Voltar" id="botaoCancelar" />
 				</div>
 			</div>
 		
@@ -75,7 +75,7 @@ try {
 								</li>
 							</ul>
 							<div id="tabs-1">
-								<table id="tabela-dados-projeto" style="text-align: left;">
+								<table id="tabela-dados-projeto" style="text-align: left; width:200px;">
 									<tr>
 										<th>Nome:</th>
 										<td class="align-left"><?php echo $projeto->getNome();?></td>
@@ -90,7 +90,7 @@ try {
 									</tr>
 									<tr>
 										<th>Orçamento:</th>
-										<td><?php echo $projeto->getOrcamento();?></td>
+										<td>R$ <?php echo $projeto->getOrcamento();?></td>
 									</tr>								
 								</table>
 								

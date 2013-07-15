@@ -1,6 +1,7 @@
 ﻿<?php
 
 require '../app/controller/projeto_controller.php';
+require '../app/utils/session_utils.php';
 
 //---Para tratar requisições de formulários
 if($_POST) { //Se houver requisição...
@@ -9,14 +10,14 @@ if($_POST) { //Se houver requisição...
 	
 	if($acao=='list')
 			try {
-				$retorno = listaProjeto($_SESSION['idUsuario']);
+				$retorno = listaProjeto($_SESSION['usuario.id']);
 			}
 			catch (Exception $ex) {
 				echo "ERRO: ".$ex->getMessage();
 			}
 	else if($acao=='new')
 			try {
-				$retorno = cria($_POST, $_SESSION['idUsuario']);
+				$retorno = cria($_POST, $_SESSION['usuario.id']);
 			}
 			catch (Exception $ex) {
 				echo "ERRO: ".$ex->getMessage();
@@ -45,7 +46,7 @@ function cria($formulario, $idUsuario){
 
 		$controller = new ProjetoController();
 		
-		$sucesso = $controller->cria($formulario, $idUsuario);
+		$sucesso = $controller->criarProjeto($formulario, $idUsuario);
 		if($sucesso)
 			header ("location: index.php");
 		return $sucesso;

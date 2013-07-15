@@ -63,26 +63,23 @@ class Projeto{
 		}
 
 	}
-	public function setFim($fim, $inicio = NULL){
+	public function setFim($fim){
 		if ($fim == NULL || $fim == ''){
 			throw new Exception ('Data de termino vazia.');
-		}else if (strtotime($inicio) == strtotime($fim)){
-			throw new Exception ('Data de termino igual à de inicio.');
-		}else if (strtotime($inicio) > strtotime($fim)){
-			throw new Exception ('Data de inicio maior que a de termino.');
 		}
 		else{
 			$this->fim = $fim;
 		}
 	}
 	public function setOrcamento($orcamento){
+		$orcamento = strtr("$orcamento", "," , ".");
 		
-			if (!is_numeric($orcamento)){
-				throw new Exception('O orçamento é apenas numérico.');
-			}
-			else {
-				$this->orcamento = $orcamento;
-			}
+		if (!is_numeric($orcamento)){
+			throw new Exception('O orçamento é apenas numérico.');
+		}
+		else {
+			$this->orcamento = $orcamento;
+		}
 		
 	}
 

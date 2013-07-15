@@ -44,7 +44,7 @@
         
 			<div class="inputs box">
 
-			<form method="post" action="handlerProjeto.php?action=2"
+			<form method="post" action="project.do.php?action=new"
 				id="formCadastroProjeto">
 				<fieldset>
 					<legend class="destak">Cadastro de Projeto</legend>

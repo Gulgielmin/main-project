@@ -800,8 +800,8 @@ body .ui-tooltip {
 	font-size: 1em;
 }
 .ui-widget-content {
-	border: 1px solid transparent;
-	
+	border: 1px solid #d8d8d8;
+	background:#fefefe;
 }
 .ui-widget-content a {
 	color: #ffffff;

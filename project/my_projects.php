@@ -2,8 +2,6 @@
 ini_set('display_errors', 'Off');
 error_reporting(E_ALL);
 
-require '../app/utils/session_utils.php';
-require '../app/domain/usuario.php';
 require 'project.do.php';
 
 if(!session_started()) {
@@ -11,7 +9,6 @@ if(!session_started()) {
 }
 
 $meusProjetos = listaProjeto($_SESSION['usuario.id']);
-
 ?>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">

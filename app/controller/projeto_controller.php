@@ -30,10 +30,13 @@ class ProjetoController{
 	}
 
 	public function buscarProjeto($idProjeto){
-
+		$projeto = null;
 		$busca = $this->business->buscarProjeto($idProjeto);
-		$projeto = new Projeto($busca->idProjeto, $busca->nome_projeto, $this->converter_data($busca->inicio), $this->converter_data($busca->fim), $busca->orcamento);
-
+		if($busca)
+			$projeto = new Projeto($busca->idProjeto, $busca->nome_projeto, $this->converter_data($busca->inicio), $this->converter_data($busca->fim), $busca->orcamento);
+		else
+			throw new Exception("Nenhum projeto encontrado.");
+		
 		return $projeto;
 	}
 	

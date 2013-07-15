@@ -53,16 +53,15 @@ class AlteraProjetoTest extends PHPUnit_Framework_TestCase {
 			
 		$this->assertNotNull(TRUE,$cadastro);
 	}
-	
+/*
 	public function testeAlteraProjeto(){
 		$_POST['idProjeto'] = 123123;
-		$_POST['nomeProjeto'] = 'Teste';
+		$_POST['nomeProjeto'] = '';
 		$_POST['dataInicio'] = '2000-01-01';
 		$_POST['dataTermino'] = '2001-01-01';
 		$_POST['orcamento'] = 1500;
 		
 		
-		$_POST['nomeProjeto'] = 'Teste1';
 		
 		try{
 			$this->controller_projeto = new ProjetoController();
@@ -70,8 +69,8 @@ class AlteraProjetoTest extends PHPUnit_Framework_TestCase {
 			$cadastro = $this->controller_projeto->alterarProjeto($_POST);
 		}
 		catch (Exception $e){
-			$this->assertEquals('Erro:',$e->getMessage());
+			$this->assertEquals('',$e->getMessage());
 		}
-	}
+	}*/
 } 
 ?>

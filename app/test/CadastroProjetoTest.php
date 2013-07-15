@@ -47,7 +47,7 @@ class CadastroProjetoTest extends PHPUnit_Framework_TestCase {
 		$this->controller_projeto = new ProjetoController();
 
 		$cadastro = $this->controller_projeto->criarProjeto($_POST, $_SESSION['usuario.id']);
-			
+		
 		$this->assertNotNull(TRUE,$cadastro);
 	}
 
@@ -142,7 +142,19 @@ class CadastroProjetoTest extends PHPUnit_Framework_TestCase {
 			$cadastro = $this->controller_projeto->criarProjeto($_POST, $_SESSION['usuario.id']);
 		}
 		catch (Exception $e){
-			$this->assertEquals('Data de termino igual à de incio.',$e->getMessage());
+			$this->assertEquals('Data de termino igual à de inicio.',$e->getMessage());
+		}
+		
+		$_POST['dataInicio'] = '2001-01-01';
+		$_POST['dataTermino'] ='2000-01-01';
+		
+		try{
+			$this->controller_projeto = new ProjetoController();
+		
+			$cadastro = $this->controller_projeto->criarProjeto($_POST, $_SESSION['usuario.id']);
+		}
+		catch (Exception $e){
+			$this->assertEquals('Data de inicio maior que a de termino.',$e->getMessage());
 		}
 	}
 	

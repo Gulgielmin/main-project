@@ -129,11 +129,12 @@ class CadastroProjetoTest extends PHPUnit_Framework_TestCase {
 		}
 	}
 	
-	public function testCadastroProjetoSemOrcamento() {
+	
+	public function testCadastroProjetoTerminoincorreto() {
 		$_POST['nomeProjeto'] = 'teste';
 		$_POST['dataInicio'] = '2000-01-01';
-		$_POST['dataTermino'] = '2001-01-01';
-		$_POST['orcamento'] = '';
+		$_POST['dataTermino'] ='2000-01-01';
+		$_POST['orcamento'] = 1500;
 	
 		try{
 			$this->controller_projeto = new ProjetoController();
@@ -141,18 +142,36 @@ class CadastroProjetoTest extends PHPUnit_Framework_TestCase {
 			$cadastro = $this->controller_projeto->criarProjeto($_POST, $_SESSION['usuario.id']);
 		}
 		catch (Exception $e){
-			$this->assertEquals('Orçamento vazio.',$e->getMessage());
+			$this->assertEquals('Data de termino igual à de incio.',$e->getMessage());
 		}
+	}
 	
-		$_POST['orcamento'] = NULL;
+	public function testCadastroProjetoOrcamentoIncorreto() {
+		$_POST['nomeProjeto'] = 'teste';
+		$_POST['dataInicio'] = '2000-01-01';
+		$_POST['dataTermino'] ='2000-01-01';
+		$_POST['orcamento'] = 'a';
+	
 		try{
 			$this->controller_projeto = new ProjetoController();
 	
 			$cadastro = $this->controller_projeto->criarProjeto($_POST, $_SESSION['usuario.id']);
 		}
 		catch (Exception $e){
-			$this->assertEquals('Orçamento vazio.',$e->getMessage());
+			$this->assertEquals('O orçamento é apenas numérico.',$e->getMessage());
 		}
+		
+		$_POST['orcamento'] = '1234A' ;
+		
+		try{
+			$this->controller_projeto = new ProjetoController();
+		
+			$cadastro = $this->controller_projeto->criarProjeto($_POST, $_SESSION['usuario.id']);
+		}
+		catch (Exception $e){
+			$this->assertEquals('O orçamento é apenas numérico.',$e->getMessage());
+		}
+
 	}
 }
 ?>

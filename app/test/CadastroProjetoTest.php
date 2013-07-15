@@ -150,7 +150,7 @@ class CadastroProjetoTest extends PHPUnit_Framework_TestCase {
 		$_POST['nomeProjeto'] = 'teste';
 		$_POST['dataInicio'] = '2000-01-01';
 		$_POST['dataTermino'] ='2000-01-01';
-		$_POST['orcamento'] = 'a';
+		$_POST['orcamento'] = 'A';
 	
 		try{
 			$this->controller_projeto = new ProjetoController();
@@ -161,7 +161,18 @@ class CadastroProjetoTest extends PHPUnit_Framework_TestCase {
 			$this->assertEquals('O orçamento é apenas numérico.',$e->getMessage());
 		}
 		
-		$_POST['orcamento'] = '1234A' ;
+		$_POST['orcamento'] = 'as1234as';
+		
+		try{
+			$this->controller_projeto = new ProjetoController();
+		
+			$cadastro = $this->controller_projeto->criarProjeto($_POST, $_SESSION['usuario.id']);
+		}
+		catch (Exception $e){
+			$this->assertEquals('O orçamento é apenas numérico.',$e->getMessage());
+		}
+		
+		$_POST['orcamento'] = 1500;
 		
 		try{
 			$this->controller_projeto = new ProjetoController();

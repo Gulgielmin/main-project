@@ -10,20 +10,8 @@ if(!session_started()) {
 	header("location ../account/login.php");
 }
 
-$usuario = NULL;
 $meusProjetos = listaProjeto($_SESSION['usuario.id']);
 
-try {
-	//$usuario = $_SESSION['current_user'];
-	$usuario = new Usuario(NULL,NULL,NULL);
-	$usuario->setEmail($_SESSION['usuario.email']);
-	$usuario->setIdUsuario($_SESSION['usuario.id']);
-	$usuario->setNome($_SESSION['usuario.nome']);
-	$meusProjetos = listaProjeto($usuario->getIdUsuario());
-}
-catch(Exception $e) {
-	echo "Tratar esse erro :/";
-}
 ?>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">

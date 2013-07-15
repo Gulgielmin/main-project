@@ -74,7 +74,7 @@ class DefaultProjetoDAO extends PDOConnectionFactory implements ProjetoDAO{
 
 	public function buscarProjeto($idProjeto){
 		$projeto = null;
-		$stmt = $this->conex->prepare("SELECT projeto.nome_projeto, projeto.inicio, projeto.fim, projeto.orcamento FROM projeto WHERE projeto.idProjeto = :id LIMIT 1");
+		$stmt = $this->conex->prepare("SELECT * FROM projeto WHERE projeto.idProjeto = :id LIMIT 1");
 		$stmt->bindValue('id', $idProjeto, PDO::PARAM_INT);
 
 		try {

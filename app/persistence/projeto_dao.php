@@ -107,11 +107,12 @@ class DefaultProjetoDAO extends PDOConnectionFactory implements ProjetoDAO{
 	public function alterarProjeto($projeto){
 		$ok = null;
 		try{
-			$stmt = $this->conex->prepare("UPDATE projeto SET nome_projeto = :nome, inicio = :inicio, fim = :fim WHERE idProjeto = :id");
+			$stmt = $this->conex->prepare("UPDATE projeto SET nome_projeto = :nome, inicio = :inicio, fim = :fim, orcamento = :orcamento WHERE idProjeto = :id");
 
 			$stmt->bindValue('nome', $projeto->getNome(), PDO::PARAM_STR);
 			$stmt->bindValue('inicio', $projeto->getInicio(), PDO::PARAM_STR);
 			$stmt->bindValue('fim', $projeto->getFim(), PDO::PARAM_STR);
+			$stmt->bindValue('orcamento', $projeto->getOrcamento(), PDO::PARAM_STR);
 			$stmt->bindValue('id', $projeto->getIdProjeto(), PDO::PARAM_INT);
 
 

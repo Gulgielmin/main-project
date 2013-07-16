@@ -7,8 +7,8 @@ $(function($){
 $(function($){
 	$('#orcamento').priceFormat({
 		prefix: '',
-	    centsSeparator: ',',
-	    thousandsSeparator: '.'
+	    centsSeparator: '.',
+	    thousandsSeparator: ''
 	});
 });
 

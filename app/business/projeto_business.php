@@ -17,8 +17,9 @@ class ProjetoBusiness extends Business{
 	}
 
 	public function alterarProjeto($projeto){
-
+		$ok = null;
 		$ok = $this->dao->alterarProjeto($projeto);
+		return $ok;
 	}
 
 	public function listarProjeto($idUsuario){

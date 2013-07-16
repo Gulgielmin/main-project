@@ -81,7 +81,7 @@ function altera($formulario){
 
 	$controller = new ProjetoController();
 
-	$sucesso = $controller->alteraProjeto($formulario);
+	$sucesso = $controller->alterarProjeto($formulario);
 	if($sucesso) {
 			header ("location: index.php");
 		}

@@ -52,7 +52,7 @@
 			</div>
 			
 		</div>
-					<?php if (isset ($_GET["message"]))
+			<?php if (isset ($_GET["message"]))
 			{
 			?>
             <div class="ui-state-highlight">

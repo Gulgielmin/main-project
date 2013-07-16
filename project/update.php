@@ -80,6 +80,15 @@ try {
 				</form>
 				
 				</div>
+				
+			<?php if (isset ($_GET["message"]))
+			{
+			?>
+            <div class="ui-state-highlight">
+            <?php
+			echo ($_GET["message"]);
+			}
+			?>
 		</div>
 		<?php require '../shared/footer.php';?>
 	</div>

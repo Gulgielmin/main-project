@@ -2,9 +2,7 @@
 	<?php if (session_started()) { ?>
 	<div id="left">
 		<ul>
-			<li><a href="">Dashboard</a></li>
 			<li><a href="../project/index.php">Projeto</a></li>
-			<li><a href="">Administração</a></li>
 		</ul>
 	</div>
 	

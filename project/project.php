@@ -51,7 +51,6 @@ try {
 						<li><a
 							href="update.php?id=<?php echo $projeto->getIdProjeto();?>">Editar
 								Dados</a></li>
-						<li><a href="#">Excluir Projeto</a></li>
 						<li><a href="index.php">Meus Projetos</a></li>
 					</ul>					
 					<input type="button" style="margin-left:30px;" class="button" value="Voltar" id="botaoCancelar" />
@@ -65,14 +64,7 @@ try {
 						<div id="tabs">
 							<ul>
 								<li class="active"><a href="#tabs-1" accesskey="1" title=""><span>Dados do Projeto</span> </a></li>
-								<li><a href="#tabs-2" accesskey="2" title=""><span>Categorias de Itens</span>
-								</a></li>
-								<li><a href="#tabs-3" accesskey="3" title=""><span>Itens de Custo</span>
-								</a></li>
-								<li><a href="#tabs-4" accesskey="4" title=""><span>Participantes</span> </a>
-								</li>
-								<li><a href="#tabs-5" accesskey="5" title=""><span>Relatórios</span> </a>
-								</li>
+
 							</ul>
 							<div id="tabs-1">
 								<table id="tabela-dados-projeto" style="text-align: left; width:200px;">

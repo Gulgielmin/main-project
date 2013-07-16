@@ -29,6 +29,7 @@ if($_POST) { //Se houver requisição...
 			}
 			catch (Exception $ex) {
 				echo "ERRO: ".$ex->getMessage();
+				header("location: create.php?message=".$ex->getMessage());
 			}
 	else if($acao=='delete'){
 			try {				

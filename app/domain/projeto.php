@@ -1,11 +1,13 @@
 <?php 
+
+include dirname(__FILE__).'/custo.php';
 /**
+ * Classe de domínio para instanciação de objetos
+ * de tipo projeto
  * @author Pedro Thiago
  * @author Allan
  *
  */
-include dirname(__FILE__).'/custo.php';
-
 
 class Projeto{
 	private $idProjeto;

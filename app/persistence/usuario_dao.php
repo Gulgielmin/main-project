@@ -1,6 +1,10 @@
 <?php
 require_once 'pdo_connection_factory.php';
-
+/**
+ * Interface de implementação das funcionalidades de acesso de um usuario ao banco
+ * @author Willian
+ *
+ */
 interface UsuarioDAO {
 
 	public function validarUsuario($email, $senha);
@@ -16,7 +20,11 @@ interface UsuarioDAO {
 	public function consultarUsuario($idUsuario);
 
 }
-
+/**
+ * Classe que possui as funcionalidades de usuario no banco de dados
+ * @author Willian
+ *
+ */
 class DefaultUsuarioDAO extends PDOConnectionFactory implements UsuarioDAO{
 
 	/**
@@ -57,7 +65,8 @@ class DefaultUsuarioDAO extends PDOConnectionFactory implements UsuarioDAO{
 	}
 
 	/**
-	 * 
+	 * (non-PHPdoc)
+	 * @see UsuarioDAO::consultarUsuario()
 	 */
 	public function consultarUsuario($idUsuario){
 		$usuario = null;
@@ -96,9 +105,8 @@ class DefaultUsuarioDAO extends PDOConnectionFactory implements UsuarioDAO{
 	}
 	
 	/**
-	 * 
-	 * @param unknown $usuario
-	 * @return unknown
+	 * (non-PHPdoc)
+	 * @see UsuarioDAO::alterarSenha()
 	 */
 	public function alterarSenha($usuario) {
 		$ok = null;
@@ -116,9 +124,8 @@ class DefaultUsuarioDAO extends PDOConnectionFactory implements UsuarioDAO{
 	}
 	
 	/**
-	 * 
-	 * @param Usuario $usuario
-	 * @return unknown
+	 * (non-PHPdoc)
+	 * @see UsuarioDAO::alterarDados()
 	 */
 	public function alterarDados($usuario){
 		$ok = null;

@@ -51,7 +51,7 @@ function cria($formulario, $idUsuario){
 			header ("location: index.php");
 		return $sucesso;
 
-	}
+}
 
 function listaProjeto($IdUsuario){
 

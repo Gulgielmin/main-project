@@ -1,6 +1,9 @@
 <?php 
 session_start("usuario");
-
+/**
+ * Inicia uma sessão para uso em várias funcionalidades
+ * @return unknown|boolean
+ */
 function session_started() {
 	$sessao_ok = isset($_SESSION);
 	
@@ -10,7 +13,10 @@ function session_started() {
 	}
 	return false;
 }
-
+/**
+ * Metódo para redirecionamento de sessão não iniciada
+ * @param unknown $url
+ */
 function redirect_if_no_user($url) {
 	if(!session_started()) {
 		header("location: ".$url);

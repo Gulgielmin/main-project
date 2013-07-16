@@ -23,8 +23,15 @@ class Usuario{
 	private $senha;
 	private $modo_autenticacao;
 
-
-
+	/**
+	 * Construtor com parametros especificos para usuário
+	 * @param unknown $nome
+	 * @param unknown $email
+	 * @param unknown $senha
+	 * @param string $confirmacao
+	 * @param unknown $modo_autenticacao
+	 * @param string $idUsuario
+	 */
 	public function __construct($nome, $email, $senha, $confirmacao=NULL,$modo_autenticacao=Usuario::MODO_NORMAL,$idUsuario=""){
 		$this->modo_autenticacao = $modo_autenticacao;
 

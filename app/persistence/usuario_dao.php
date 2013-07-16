@@ -7,8 +7,6 @@ interface UsuarioDAO {
 
 	public function salvarUsuario($usuario);
 
-	public function alterarConta($usuario);
-
 	public function alterarDados($usuario);
 
 	public function alterarSenha($usuario);
@@ -70,29 +68,6 @@ class DefaultUsuarioDAO extends PDOConnectionFactory implements UsuarioDAO{
 		$usuario = $stmt->fetch(PDO::FETCH_OBJ);
 
 		return $usuario;
-	}
-
-
-
-	/**
-	 * (non-PHPdoc)
-	 * @see UsuarioDAO::alterarConta()
-	 */
-	public function alterarConta($usuario){
-		$ok = null;
-
-		$conex = $this->criaConexao();
-		$stmt = $conex->prepare("UPDATE usuario SET nome = :nome, email = :email, senha = :senha WHERE idUsuario = :id");
-			
-		$stmt->bindValue('nome', $usuario->getNome(), PDO::PARAM_STR);
-		$stmt->bindValue('email', $usuario->getEmail(), PDO::PARAM_STR);
-		$stmt->bindValue('senha', $usuario->getSenha(), PDO::PARAM_STR);
-		$stmt->bindValue('id', $usuario->getIdUsuario(), PDO::PARAM_INT);
-						
-		$ok = $stmt->execute();
-
-		$this->conex = PDOConnectionFactory::fechaConexao();
-		return $ok;
 	}
 	
 	/**

@@ -2,7 +2,7 @@
 
 <?php
 
-require 'project.do.php';
+require_once 'project.do.php';
 
 if(!isset($_GET['id'])) {
 	header ("location: index.php");
@@ -35,9 +35,9 @@ try {
 
 	<div class="root">
 		
-		<?php require '../shared/header.php';?>
+		<?php require_once '../shared/header.php';?>
 		
-		<?php require '../shared/navigation_bar.php';?>
+		<?php require_once '../shared/navigation_bar.php';?>
 		
 		<div class="content">
 		
@@ -107,7 +107,7 @@ try {
 						
 					</div>
 		</div>
-		<?php require '../shared/footer.php';?>
+		<?php require_once '../shared/footer.php';?>
 	</div>
 
 </body>

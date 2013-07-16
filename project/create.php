@@ -1,6 +1,6 @@
 ﻿<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
-<?php require '../app/utils/session_utils.php';?>
+<?php require_once '../app/utils/session_utils.php';?>
 
 <html>
 <head>
@@ -25,9 +25,9 @@
 
 	<div class="root">
 
-		<?php require '../shared/header.php';?>
+		<?php require_once '../shared/header.php';?>
 
-		<?php require '../shared/navigation_bar.php';?>
+		<?php require_once '../shared/navigation_bar.php';?>
 
 		<div class="content">		
 		
@@ -69,7 +69,7 @@
 				
 				</div>
 		</div>
-		<?php require '../shared/footer.php';?>
+		<?php require_once '../shared/footer.php';?>
 	</div>
 
 </body>

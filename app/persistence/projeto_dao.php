@@ -155,7 +155,6 @@ class DefaultProjetoDAO extends PDOConnectionFactory implements ProjetoDAO{
 		}
 	}
 
-
 }
 
 ?>

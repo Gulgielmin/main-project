@@ -148,24 +148,6 @@ class UsuarioController{
 			throw new Exception("Nenhum usuário encontrado.");
 		}
 	}
-	/**
-	 * Altera os dados de um usuário na base de dados
-	 *
-	 * @param $_POST $content os dados do usuário
-	 * 
-	 * Pedro Thiago e Louis 
-	 * 
-	 */
-	public function alteraUsuario($content){
-		$nome = $content['nome'];
-		$email = $content['email'];
-		$senha = $content['senha'];
-		$confirmacao = $content['confirmacao'];
-	
-		$usuario = new Usuario($nome, $email, $senha, $confirmacao);
-		$usuario->setIdUsuario($_SESSION['usuario.id']);
-		$this->business->alterar($usuario);
-	}
 	
 	/**
 	 *  Altera a senha de um usuário

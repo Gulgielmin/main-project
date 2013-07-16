@@ -56,17 +56,6 @@ class UsuarioBusiness extends Business{
 		$this->dao->salvarUsuario($user);
 	}
 	
-
-	/**
-	 * Altera um usuário
-	 * @param unknown $user
-	 * @return unknown
-	 */
-	public function alterar($user){
-		$ok = $this->dao->alterar($user);
-		return $ok;
-	}
-	
 	/**
 	 * Altera apenas a senha de um usuário
 	 * @param unknown $user

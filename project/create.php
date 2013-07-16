@@ -66,7 +66,10 @@
 				
 				</fieldset>				
 				</form>
-				
+			
+			<?php if (isset ($_GET["message"]))
+			echo ($_GET["message"]);	
+				?>
 				</div>
 		</div>
 		<?php require '../shared/footer.php';?>

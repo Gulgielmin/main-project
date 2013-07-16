@@ -59,6 +59,7 @@ try {
 				id="formCadastroProjeto">
 				<fieldset>
 					<legend class="destak">Editar Projeto</legend>
+						<input type="hidden" name="idProjeto" value="<?php echo $projeto->getIdProjeto()?>" />
 				
 					<label for="nomePojeto">Nome:</label>
 						<input type="text" name="nomeProjeto" value="<?php echo $projeto->getNome()?>" /> <br />

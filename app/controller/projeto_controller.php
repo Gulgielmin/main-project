@@ -80,21 +80,18 @@ class ProjetoController{
 	 * @param $post
 	 */
 	public function alterarProjeto($post){
-	
+		$sucesso = null;
 		$idProjeto = $post['idProjeto'];
 		$nome = $post['nomeProjeto'];
 		$inicio = $this->converter_data($post['dataInicio']);
 		$fim = $this->converter_data($post['dataTermino']);
 		$orcamento = $post['orcamento'];
 		
-		try {
-			$projeto = new Projeto($idProjeto, $nome, $inicio, $fim, $orcamento);
-		}
-		catch(Exception $ex){
-			echo "Erro:".$ex.getMessage();
-		}
-
+		$projeto = new Projeto($idProjeto, $nome, $inicio, $fim, $orcamento);
 		$sucesso = $this->business->alterarProjeto($projeto);
+		
+		if(!$sucesso)
+			throw new Exception("Não foi possível realizar a alteração.");
 		
 		return $sucesso;	
 	}

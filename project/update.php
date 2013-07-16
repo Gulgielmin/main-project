@@ -1,5 +1,4 @@
 ﻿<?php
-require '../app/utils/session_utils.php';
 require 'project.do.php';
 
 if(!isset($_GET['id'])) {

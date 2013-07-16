@@ -1,6 +1,10 @@
 ﻿<?php
 require_once 'pdo_connection_factory.php';
-
+/**
+ * Interface de implementação das funcionalidades de acesso de um projeto ao banco
+ * @author Willian
+ *
+ */
 interface ProjetoDAO {
 
 	public function salvarProjeto($projeto);
@@ -11,7 +15,12 @@ interface ProjetoDAO {
 	public function vincularUsuario($idProjeto, $idUsuario, $idCargo);
 
 }
-
+/**
+ * Classe que compreende as funcionalidades 
+ * de projeto no banco de dados
+ * @author Willian
+ *
+ */
 class DefaultProjetoDAO extends PDOConnectionFactory implements ProjetoDAO{
 
 	private $conex = null;
@@ -19,7 +28,10 @@ class DefaultProjetoDAO extends PDOConnectionFactory implements ProjetoDAO{
 	public function __construct(){
 		$this->conex = $this->criaConexao();
 	}
-
+	/**
+	 * (non-PHPdoc)
+	 * @see ProjetoDAO::salvarProjeto()
+	 */
 	public function salvarProjeto($projeto){
 		$ok = null;
 		try{
@@ -54,7 +66,10 @@ class DefaultProjetoDAO extends PDOConnectionFactory implements ProjetoDAO{
 			echo "Erro: ".$ex->getMessage();
 		}
 	}
-
+	/**
+	 * (non-PHPdoc)
+	 * @see ProjetoDAO::listarProjetosPorUsuario()
+	 */
 	public function listarProjetosPorUsuario($idUsuario){
 		$projetos = null;
 		$stmt = $this->conex->prepare("SELECT projeto.idProjeto, projeto.nome_projeto FROM usuario_em_projeto INNER JOIN projeto ON (usuario_em_projeto.Projeto_idProjeto = projeto.idProjeto) WHERE usuario_em_projeto.Usuario_idUsuario = :id");
@@ -71,7 +86,10 @@ class DefaultProjetoDAO extends PDOConnectionFactory implements ProjetoDAO{
 
 		return $projetos;
 	}
-
+	/**
+	 * (non-PHPdoc)
+	 * @see ProjetoDAO::buscarProjeto()
+	 */
 	public function buscarProjeto($idProjeto){
 		$projeto = null;
 		$stmt = $this->conex->prepare("SELECT * FROM projeto WHERE projeto.idProjeto = :id LIMIT 1");
@@ -88,7 +106,10 @@ class DefaultProjetoDAO extends PDOConnectionFactory implements ProjetoDAO{
 
 		return $projeto;
 	}
-
+	/**
+	 * (non-PHPdoc)
+	 * @see ProjetoDAO::excluirProjeto()
+	 */
 	public function excluirProjeto($idProjeto){
 		$ok = null;
 		$stmt = $this->conex->prepare("DELETE FROM projeto WHERE projeto.idProjeto = :id LIMIT 1");
@@ -103,7 +124,10 @@ class DefaultProjetoDAO extends PDOConnectionFactory implements ProjetoDAO{
 
 		return $ok;
 	}
-
+	/**
+	 * (non-PHPdoc)
+	 * @see ProjetoDAO::alterarProjeto()
+	 */
 	public function alterarProjeto($projeto){
 		$ok = null;
 		try{
@@ -129,7 +153,10 @@ class DefaultProjetoDAO extends PDOConnectionFactory implements ProjetoDAO{
 			echo "Erro: ".$ex->getMessage();
 		}
 	}
-
+	/**
+	 * (non-PHPdoc)
+	 * @see ProjetoDAO::vincularUsuario()
+	 */
 	public function vincularUsuario($idProjeto, $idUsuario, $idCargo){
 		$ok = null;
 		try{

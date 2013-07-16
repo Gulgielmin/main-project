@@ -7,6 +7,12 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<link rel="stylesheet" href="../shared/css/style.css" type="text/css">
 		<link rel="stylesheet" href="css/login.css" type="text/css">
+		<script type="text/javascript" src="../shared/js/jquery-2.0.2.js"></script>
+		<script type="text/javascript" src="../shared/js/jquery-ui-1.10.3.js"></script>
+		<script type="text/javascript" src="../shared/js/jquery.maskedinput.js"></script>
+		<script type="text/javascript" src="../shared/js/scripts.js"></script>
+		<script type="text/javascript" src="../shared/js/jquery.price_format.1.8.min.js"></script>
+		<link href="../shared/css/jquery-ui-1.10.3.custom.css" rel="stylesheet">
 		<title>Savant - Login</title>
 	</head>
 	
@@ -39,22 +45,23 @@
 				usuário do site. Siga os seguintes passos:
 				<ul>
 					<li>Preencha o Formulário de Cadastramento com os seus dados.</li>
-					<li>Uma mensagem de confirmação da inscrição será enviada
-						imediatamente ao seu endereço de email.</li>
-					<li>Visite o endereço web indicado na mensagem para confirmar
-						o seu cadastramento automaticamente e começar a navegar.</li>
-					<li>Acesse o seu curso clicando o nome correspondente na lista
-						de cursos disponíveis.</li>
-					<li>Quando você retornar ao site, para entrar no curso basta
-						usar o seu nome de usuário e a sua senha nesta página de acesso.</li>
 				</ul>
 				<form action="register.php">
 					<input class="button" type="submit" value="Cadastro" />
 				</form>
 			</div>
+			
 		</div>
+					<?php if (isset ($_GET["message"]))
+			{
+			?>
+            <div class="ui-state-highlight">
+            <?php
+			echo ($_GET["message"]);
+			}
+			?>
+            </div>
 		<?php require '../shared/footer.php';?>
 	</div>
-
 </body>
 </html>

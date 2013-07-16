@@ -870,9 +870,16 @@ body .ui-tooltip {
 .ui-state-highlight,
 .ui-widget-content .ui-state-highlight,
 .ui-widget-header .ui-state-highlight {
-	border: 1px solid #f9dd34;
-	background: #fbf5d0 url(images/ui-bg_glass_55_fbf5d0_1x400.png) 50% 50% repeat-x;
-	color: #363636;
+	border: 2px solid #fff;
+	background: #ff3333;
+	color: white;
+	padding:10px 20px;
+	margin: 0 20px 20px 20px;
+		/* Border style */
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+	text-align: center;
 }
 .ui-state-highlight a,
 .ui-widget-content .ui-state-highlight a,

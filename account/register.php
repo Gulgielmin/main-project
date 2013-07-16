@@ -7,6 +7,12 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<link rel="stylesheet" href="../shared/css/style.css" type="text/css">
 		<link rel="stylesheet" href="css/register.css" type="text/css">
+		<script type="text/javascript" src="../shared/js/jquery-2.0.2.js"></script>
+		<script type="text/javascript" src="../shared/js/jquery-ui-1.10.3.js"></script>
+		<script type="text/javascript" src="../shared/js/jquery.maskedinput.js"></script>
+		<script type="text/javascript" src="../shared/js/scripts.js"></script>
+		<script type="text/javascript" src="../shared/js/jquery.price_format.1.8.min.js"></script>
+		<link href="../shared/css/jquery-ui-1.10.3.custom.css" rel="stylesheet">
 		<title>Savant - Cadastro de usuário</title>
 	</head>
 	
@@ -42,6 +48,16 @@
 			</div>
 		
 		</div>
+		
+			<?php if (isset ($_GET["message"]))
+			{
+			?>
+            <div class="ui-state-highlight">
+            <?php
+			echo ($_GET["message"]);
+			}
+			?>
+            </div>
 		<?php require '../shared/footer.php';?>
 	</div>
 

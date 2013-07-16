@@ -18,6 +18,7 @@ function process_register() {
 		header("location: ../account");
 	} catch(Exception $e) {
 		echo $e->getMessage();
+		header("location: register.php?message=".$e->getMessage());
 	}
 }
 
@@ -34,6 +35,8 @@ function process_login() {
 		header("location: ../account");
 	} catch (Exception $e) {
 		echo $e->getMessage();
+		header("location: login.php?message=".$e->getMessage());
+		
 	}
 }
 
@@ -53,6 +56,7 @@ function process_update_profile() {
 		header("location: ../account");
 	} catch (Exception $e) {
 		echo $e->getMessage();
+		header("location: profile.php?message=".$e->getMessage());
 	}
 }
 
@@ -72,6 +76,7 @@ function process_update_password() {
 		header("location: ../account");
 	} catch (Exception $e) {
 		echo $e->getMessage();
+		header("location: profile.php?message=".$e->getMessage());
 	}
 }
 

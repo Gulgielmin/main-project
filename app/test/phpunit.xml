@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit>
+	<testsuites>
+		<testsuite name="Savant_Tests">
+			<file>AlteraDadosTest.php</file>
+			<file>AlteraProjetoTest.php</file>
+			<file>AlteraSenhaTest.php</file>
+			<file>CadastroProjetoTest.php</file>
+			<file>CadastroUsuarioTest.php</file>
+			<file>LoginTest.php</file>
+			<file>UsuarioTest.php</file>
+		</testsuite>
+	</testsuites>
+</phpunit>
